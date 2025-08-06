@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Death Clock</title>
+    <style>
+      :root {
+        --bg: #0b0f14;
+        --panel: #0f1620;
+        --panel-2: #121b26;
+        --text: #e6edf3;
+        --muted: #9fb0c3;
+        --accent: #6dd6ff;
+        --accent-2: #9bffb8;
+        --danger: #ff6b6b;
+        --warning: #ffd166;
+        --good: #95f29b;
+        --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      }
+
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+          Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji",
+          "Segoe UI Emoji";
+        color: var(--text);
+        background: radial-gradient(1200px 800px at 20% -10%, #162032, #0b0f14);
+        background-attachment: fixed;
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 32px 20px 60px;
+        display: grid;
+        gap: 22px;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .title h1 {
+        margin: 0;
+        font-size: clamp(24px, 3.4vw, 36px);
+        letter-spacing: 0.2px;
+      }
+
+      .chip {
+        font-size: 12px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, #122033, #0f1a28);
+        border: 1px solid #1c2a3a;
+        color: var(--muted);
+      }
+
+      .panel {
+        background: linear-gradient(180deg, var(--panel), var(--panel-2));
+        border: 1px solid #172234;
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 18px;
+      }
+      @media (max-width: 860px) {
+        .grid { grid-template-columns: 1fr; }
+      }
+
+      form {
+        padding: 18px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .field {
+        display: grid;
+        gap: 8px;
+      }
+
+      label {
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      input[type="date"], input[type="number"], button {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid #1a2a3c;
+        background: #0f1520;
+        color: var(--text);
+        outline: none;
+        transition: border-color .15s ease, box-shadow .15s ease;
+      }
+
+      input[type="number"]::-webkit-outer-spin-button,
+      input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none; margin: 0;
+      }
+      input[type="number"] { -moz-appearance: textfield; }
+
+      input:hover { border-color: #24364a; }
+      input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(109, 214, 255, 0.18); }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      button.primary {
+        background: linear-gradient(180deg, #0e92c0, #1677a3);
+        border: 1px solid #2aafdd;
+        color: #001724;
+        font-weight: 700;
+        letter-spacing: .2px;
+        cursor: pointer;
+      }
+      button.secondary {
+        background: #0f1520;
+        border: 1px solid #26374c;
+        color: var(--muted);
+        cursor: pointer;
+      }
+      button:disabled { opacity: .6; cursor: not-allowed; }
+
+      .summary {
+        padding: 18px 18px 8px;
+        display: grid;
+        gap: 16px;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      @media (max-width: 640px) { .row { grid-template-columns: 1fr; } }
+
+      .card {
+        padding: 16px;
+        border-radius: 14px;
+        border: 1px solid #1a2a3c;
+        background: #0d1522;
+      }
+
+      .kpi {
+        font-size: clamp(22px, 3vw, 28px);
+        font-weight: 800;
+        letter-spacing: .3px;
+      }
+
+      .muted { color: var(--muted); font-size: 13px; }
+
+      .countdown {
+        padding: 18px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .ticker {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+      }
+      @media (max-width: 680px) { .ticker { grid-template-columns: repeat(2, 1fr); } }
+
+      .tile {
+        padding: 14px;
+        background: #0b1220;
+        border: 1px solid #16263a;
+        border-radius: 12px;
+      }
+      .tile .number {
+        font-weight: 900;
+        font-size: clamp(22px, 4vw, 34px);
+        line-height: 1.1;
+      }
+      .tile .label { color: var(--muted); font-size: 12px; }
+
+      .note {
+        padding: 14px 18px;
+        border-top: 1px dashed #1a2b3e;
+        color: var(--muted);
+        font-size: 12.5px;
+      }
+
+      footer {
+        opacity: .75;
+        text-align: center;
+        font-size: 12px;
+        color: var(--muted);
+        padding-bottom: 8px;
+      }
+
+      .status-good { color: var(--good); }
+      .status-warn { color: var(--warning); }
+      .status-bad  { color: var(--danger); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="title">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2C7.031 2 3 6.031 3 11c0 3.059 1.559 5.763 3.937 7.37.133.09.226.23.258.389l.39 1.972c.097.49.69.719 1.115.435l1.694-1.13a.75.75 0 0 1 .743-.044c.927.418 1.955.648 2.863.648 4.969 0 9-4.031 9-9s-4.031-9-9-9Zm-1.5 6.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Zm5 0a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM8.25 14A.75.75 0 0 1 9 13.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 14Z" fill="url(#g)"/>
+            <defs>
+              <linearGradient id="g" x1="3" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#9bffb8"/>
+                <stop offset="1" stop-color="#6dd6ff"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <h1>Death Clock</h1>
+          <span class="chip">for moro skyld</span>
+        </div>
+        <div class="chip">Norsk UI</div>
+      </header>
+
+      <section class="grid">
+        <section class="panel">
+          <form id="form">
+            <div class="field">
+              <label for="birth">Fødselsdato</label>
+              <input id="birth" name="birth" type="date" required />
+            </div>
+            <div class="field">
+              <label for="expectancy">Forventet levealder (år)</label>
+              <input id="expectancy" name="expectancy" type="number" inputmode="decimal" step="0.1" min="1" max="130" value="82" />
+            </div>
+            <div class="actions">
+              <button type="button" class="primary" id="startBtn">Start nedtellingen</button>
+              <button type="button" class="secondary" id="shareBtn">Kopier lenke</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel">
+          <div class="summary">
+            <div class="row">
+              <div class="card">
+                <div class="muted">Estimert dødstidspunkt</div>
+                <div class="kpi" id="eta">—</div>
+              </div>
+              <div class="card">
+                <div class="muted">Status</div>
+                <div class="kpi" id="status">—</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="card">
+                <div class="muted">Din nåværende alder (omtrentlig)</div>
+                <div class="kpi" id="ageNow">—</div>
+              </div>
+              <div class="card">
+                <div class="muted">Forventet alder ved død</div>
+                <div class="kpi" id="ageAtDeath">—</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="panel">
+        <div class="countdown">
+          <div class="muted">Tid igjen (omtrentlig)</div>
+          <div class="ticker">
+            <div class="tile">
+              <div class="number" id="years">0</div>
+              <div class="label">år</div>
+            </div>
+            <div class="tile">
+              <div class="number" id="days">0</div>
+              <div class="label">dager</div>
+            </div>
+            <div class="tile">
+              <div class="number" id="hours">00</div>
+              <div class="label">timer</div>
+            </div>
+            <div class="tile">
+              <div class="number" id="minutes">00</div>
+              <div class="label">min</div>
+            </div>
+            <div class="tile">
+              <div class="number" id="seconds">00</div>
+              <div class="label">sek</div>
+            </div>
+          </div>
+        </div>
+        <div class="note">
+          Denne «death clock» er kun for moro. Den beregner en estimert dato ved å legge
+          forventet levealder til fødselsdato, og viser en omtrentlig nedtelling basert på gjennomsnittlig årslengde.
+          Ingen medisinske råd. Ta vare på deg selv 💚
+        </div>
+      </section>
+
+      <footer>
+        Bygget med kjærlighet til tall og ironi. Personvern: all logikk kjører i nettleseren din.
+      </footer>
+    </main>
+
+    <script>
+      const MS_IN_SECOND = 1000;
+      const MS_IN_MINUTE = 60 * MS_IN_SECOND;
+      const MS_IN_HOUR   = 60 * MS_IN_MINUTE;
+      const MS_IN_DAY    = 24 * MS_IN_HOUR;
+      const MS_IN_YEAR   = 365.2425 * MS_IN_DAY; // gjennomsnittlig tropisk år
+
+      const els = {
+        birth: document.getElementById('birth'),
+        expectancy: document.getElementById('expectancy'),
+        startBtn: document.getElementById('startBtn'),
+        shareBtn: document.getElementById('shareBtn'),
+        eta: document.getElementById('eta'),
+        status: document.getElementById('status'),
+        ageNow: document.getElementById('ageNow'),
+        ageAtDeath: document.getElementById('ageAtDeath'),
+        years: document.getElementById('years'),
+        days: document.getElementById('days'),
+        hours: document.getElementById('hours'),
+        minutes: document.getElementById('minutes'),
+        seconds: document.getElementById('seconds'),
+      };
+
+      let timerId = null;
+
+      function clamp(value, min, max) {
+        return Math.min(max, Math.max(min, value));
+      }
+
+      function parseBirthDate(value) {
+        if (!value) return null;
+        const parts = value.split('-');
+        if (parts.length !== 3) return null;
+        const [y, m, d] = parts.map(Number);
+        if (!y || !m || !d) return null;
+        // Sett tid midt på dagen for å unngå kanttilfeller rundt sommertid
+        return new Date(Date.UTC(y, m - 1, d, 12, 0, 0));
+      }
+
+      function addYearsApprox(date, years) {
+        const ms = years * MS_IN_YEAR;
+        return new Date(date.getTime() + ms);
+      }
+
+      function formatEta(date) {
+        try {
+          return new Intl.DateTimeFormat('no-NO', {
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+            hour: '2-digit', minute: '2-digit', second: '2-digit'
+          }).format(date);
+        } catch {
+          return date.toLocaleString();
+        }
+      }
+
+      function decomposeDuration(ms) {
+        const sign = ms < 0 ? -1 : 1;
+        let rest = Math.abs(ms);
+
+        const years = Math.floor(rest / MS_IN_YEAR);
+        rest -= years * MS_IN_YEAR;
+
+        const days = Math.floor(rest / MS_IN_DAY);
+        rest -= days * MS_IN_DAY;
+
+        const hours = Math.floor(rest / MS_IN_HOUR);
+        rest -= hours * MS_IN_HOUR;
+
+        const minutes = Math.floor(rest / MS_IN_MINUTE);
+        rest -= minutes * MS_IN_MINUTE;
+
+        const seconds = Math.floor(rest / MS_IN_SECOND);
+
+        return { sign, years, days, hours, minutes, seconds, totalMs: ms };
+      }
+
+      function pad2(n) {
+        return String(n).padStart(2, '0');
+      }
+
+      function prettyAge(ms) {
+        const { years, days } = decomposeDuration(ms);
+        // vis måneder som en grov avrunding av dager/30.44
+        const months = Math.floor((days / 30.44));
+        const remDays = Math.floor(days - months * 30.44);
+        return `${years} år, ${months} mnd, ${remDays} d`;
+      }
+
+      function computeState() {
+        const birthDate = parseBirthDate(els.birth.value);
+        const expectancyYears = Number(els.expectancy.value);
+
+        if (!birthDate || !Number.isFinite(expectancyYears) || expectancyYears <= 0) {
+          return { valid: false };
+        }
+
+        const predictedDeath = addYearsApprox(birthDate, expectancyYears);
+        const now = new Date();
+
+        const msToDeath = predictedDeath.getTime() - now.getTime();
+        const msFromBirth = now.getTime() - birthDate.getTime();
+
+        const atDeathAgeYears = expectancyYears.toFixed(2);
+
+        return {
+          valid: true,
+          birthDate,
+          predictedDeath,
+          msToDeath,
+          msFromBirth,
+          atDeathAgeYears,
+        };
+      }
+
+      function render() {
+        const state = computeState();
+
+        if (!state.valid) {
+          els.eta.textContent = '—';
+          els.status.textContent = 'Fyll ut feltene';
+          els.status.className = 'kpi status-warn';
+          els.ageNow.textContent = '—';
+          els.ageAtDeath.textContent = '—';
+          els.years.textContent = '0';
+          els.days.textContent = '0';
+          els.hours.textContent = '00';
+          els.minutes.textContent = '00';
+          els.seconds.textContent = '00';
+          return;
+        }
+
+        els.eta.textContent = formatEta(state.predictedDeath);
+        els.ageNow.textContent = prettyAge(state.msFromBirth);
+        els.ageAtDeath.textContent = `${state.atDeathAgeYears} år`;
+
+        const parts = decomposeDuration(state.msToDeath);
+        els.years.textContent = String(parts.years);
+        els.days.textContent = String(parts.days);
+        els.hours.textContent = pad2(parts.hours);
+        els.minutes.textContent = pad2(parts.minutes);
+        els.seconds.textContent = pad2(parts.seconds);
+
+        if (parts.sign >= 0) {
+          els.status.textContent = 'På vei dit …';
+          els.status.className = 'kpi status-good';
+        } else {
+          const overdue = decomposeDuration(-state.msToDeath);
+          els.status.textContent = `Forbi forventet med ${overdue.years} år og ${overdue.days} dager`;
+          els.status.className = 'kpi status-bad';
+        }
+      }
+
+      function startTicker() {
+        if (timerId) window.clearInterval(timerId);
+        timerId = window.setInterval(render, 1000);
+        render();
+      }
+
+      function saveToUrlAndStorage() {
+        const params = new URLSearchParams();
+        if (els.birth.value) params.set('birth', els.birth.value);
+        if (els.expectancy.value) params.set('exp', String(clamp(Number(els.expectancy.value), 1, 130)));
+        const newUrl = `${location.pathname}?${params.toString()}`;
+        history.replaceState(null, '', newUrl);
+        try {
+          localStorage.setItem('deathclock_birth', els.birth.value || '');
+          localStorage.setItem('deathclock_exp', els.expectancy.value || '');
+        } catch {}
+      }
+
+      function loadFromUrlOrStorage() {
+        const url = new URL(location.href);
+        const birthParam = url.searchParams.get('birth');
+        const expParam = url.searchParams.get('exp');
+        const storedBirth = localStorage.getItem('deathclock_birth');
+        const storedExp = localStorage.getItem('deathclock_exp');
+
+        if (birthParam) els.birth.value = birthParam;
+        else if (storedBirth) els.birth.value = storedBirth;
+
+        if (expParam) els.expectancy.value = expParam;
+        else if (storedExp) els.expectancy.value = storedExp;
+      }
+
+      els.startBtn.addEventListener('click', () => {
+        saveToUrlAndStorage();
+        startTicker();
+      });
+
+      els.shareBtn.addEventListener('click', async () => {
+        saveToUrlAndStorage();
+        const url = location.href;
+        try {
+          await navigator.clipboard.writeText(url);
+          els.shareBtn.textContent = 'Lenke kopiert!';
+          setTimeout(() => (els.shareBtn.textContent = 'Kopier lenke'), 1500);
+        } catch {
+          prompt('Kopier lenke:', url);
+        }
+      });
+
+      ['input', 'change'].forEach(evt => {
+        els.birth.addEventListener(evt, () => { saveToUrlAndStorage(); render(); });
+        els.expectancy.addEventListener(evt, () => { saveToUrlAndStorage(); render(); });
+      });
+
+      loadFromUrlOrStorage();
+      render();
+    </script>
+  </body>
+</html>
