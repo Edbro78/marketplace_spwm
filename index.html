@@ -85,25 +85,6 @@
             color: var(--text);
             font-size: clamp(16px, 2.2vw, 18px);
         }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 10px;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav a {
-            display: inline-flex;
-            align-items: center;
-            padding: 10px 14px;
-            color: var(--muted);
-            border-radius: 10px;
-            border: 1px solid transparent;
-            transition: all 150ms ease;
-            font-weight: 500;
-        }
         
         /* Ny stil for disclaimer-knappen */
         #disclaimer-button {
@@ -122,13 +103,6 @@
         #disclaimer-button:hover, #disclaimer-button:focus-visible {
             background: rgba(0, 191, 255, 0.2);
             box-shadow: 0 0 0 2px var(--accent);
-            outline: none;
-        }
-
-        nav a:hover, nav a:focus-visible {
-            color: var(--text);
-            border-color: rgba(102,124,149,0.18);
-            background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
             outline: none;
         }
 
@@ -314,11 +288,6 @@
 <body>
     <header>
         <div class="container nav">
-            <div class="brand" aria-label="SPWM Marketplace">
-                <span class="brand-mark" aria-hidden="true"></span>
-                <span class="brand-name">SPWM Marketplace</span>
-            </div>
-            <!-- Ny ansvarsfraskrivelse-knapp, flyttet til høyre -->
             <a href="#" id="disclaimer-button" aria-label="Disclaimer">Disclaimer</a>
         </div>
     </header>
@@ -387,7 +356,7 @@ Beregningene i kalkulatoren må ansees som statiske og er kun ment for illustras
                 title: 'Mål og behov',
                 meta: 'Investeringsprognose',
                 link: 'https://dashboard.stg.spwm.no/Investeringsprognose/',
-                svgIcon: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                svgIcon: `<svg class="icon" viewBox="0 0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <circle cx="12" cy="12" r="7" opacity="0.5"/>
                                 <circle cx="12" cy="12" r="3.5"/>
                                 <path d="M16 8l4-2-2 4"/>
