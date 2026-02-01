@@ -235,7 +235,8 @@
         .tile[data-title="Gradvis implementering"] h3,
         .tile[data-title="Formuesskatt"] h3,
         .tile[data-title="Innløse eller beholde"] h3,
-        .tile[data-title="Verdien av penger"] h3 {
+        .tile[data-title="Verdien av penger"] h3,
+        .tile[data-title="Dashboard2026"] h3 {
             font-size: 19.2px; /* 20% større (16px * 1.2) */
         }
 
@@ -561,9 +562,10 @@ Beregningene i kalkulatoren må ansees som statiske og er kun ment for illustras
                 svgIcon: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`
             },
             {
-                title: 'T-konto 1.0',
-                meta: 'første versjon',
-                link: 'https://dashboard.stg.spwm.no/tkonto/',
+                title: 'Dashboard2026',
+                meta: 'Tre dashboards i ett. Mål og behov, T-konto og Risikosimulering',
+                link: 'https://dashboard.stg.spwm.no/dashboard/',
+                image: 'images/Dashboard2026.png',
                 svgIcon: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`
             }
         ];
@@ -576,7 +578,6 @@ Beregningene i kalkulatoren må ansees som statiske og er kun ment for illustras
             // Sjekk om tittel og lenke finnes, ellers bruk standardtekst
             const tileTitle = data.title || `Verktøy ${index + 1}`;
             const tileLink = data.link || '#';
-            const tileMeta = data.meta || '';
             const hasImage = !!data.image;
 
             const tile = document.createElement('a');
@@ -602,7 +603,6 @@ Beregningene i kalkulatoren må ansees som statiske og er kun ment for illustras
                         ${data.svgIcon}
                         <h3>${tileTitle}</h3>
                     </div>
-                    ${tileMeta ? `<div class="meta">${tileMeta}</div>` : ''}
                 `;
             }
             grid.appendChild(tile);
