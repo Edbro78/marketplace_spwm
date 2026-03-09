@@ -1,0 +1,54 @@
+# SPWM MARKETPLACE — All sidetekst (norsk)
+
+## Navbar
+- Status: SPWM Marketplace Status: ONLINE
+- Logo: SPWM MARKETPLACE
+- Meny: Ta kontakt | Disclaimer | Q&A | Praktiske tips
+- Meny lenker: #ta-kontakt | #disclaimer | #qa | #praktiske-tips
+- Ta kontakt (tooltip ved hover): Ta kontakt med superbruker på ditt kontor, eventuelt ta kontakt med Edvard Brøther direkte på edvard.brother@soderbergpartnerswealth.no
+
+## Hero
+- Overline: (tom)
+- Hovedoverskrift: Marketplace
+- Undertekst: En samling verktøy utviklet etter innspill fra rådgivere i SPWM.
+- Hovedknapp (Master CTA): Gå til Dashboards
+
+## Tre dashboards (kort)
+- Seksjonstittel: Dashboards
+- Undertekst: 
+
+### Portal 1 — Arbeidsprosess del I
+- Tittel: Arbeidsprosess del I
+- Beskrivelse: Skattemessig organisering. Eiendeler, finansiering og Kontantstrøm. Fremtidige målsetninger
+- Knapp: Gå til Dashboard
+
+### Portal 2 — Innløse eller beholde
+- Tittel: Innløse eller beholde
+- Beskrivelse: Utbetale utbytte eller vente, betale ned gjeld eller vente, flytte fondskonto eller beholde
+- Knapp: Gå til Dashboard
+
+### Portal 3 — Gradvis implementering
+- Tittel: Gradvis implementering
+- Beskrivelse: Hvordan implementere investeringer. Investere alt dag 1, gjøre dette gradvis over tid.
+- Knapp: Gå til Dashboard
+
+## Praktisk bruk (innsikt-bilder)
+- Seksjonstittel: Praktisk bruk:
+- Undertekst: Best practise, video, Q&A, overføring til møtereferat og formuesplan.
+- Kort: Best Practise | Video | Overføring til møtereferat | Overføring til formuesplan
+
+## Økosystemfilosofi
+- Seksjonstittel: Hovedtanke bak dette prosjektet
+- Underoverskrift: Fra slides til skreddersøm. Fra produktfokus til strategi
+- Brødtekst (kontrast): Ved å ha ha et komplett verktøy for karlegging av den økonomiske situasjonen, vil rådgiver og klient ha et 360 graders perspektiv på den fiansielle situasjonen.
+
+## Protokoll — Den beste rådgivningen går via gode verktøy og skreddersøm
+- Seksjonstittel: SPWM Marketplace
+- Underoverskrift: Våre beste verktøy utviklet etter innspill fra rådgivere
+- Steg 1 — Dialog: Ved å bruke verktøy vil løsninger og rådgivning utformes sammen med klient live. Dette som alternativ til slides og andre statiske hjelpemiddel
+- Steg 2 — Strategi: Vår rådgivning går i retning av helhet, strategi og helikopterperspektiv. Bort fra produkter som kommer senere i rådgivningen.
+- Steg 3 — Bro over til Formuesplanen: Dashbordene vil danne fundamentet til Formuesplanen. Klientens strategidokument.
+
+## Footer
+- Tekst: SPWM Marketplace — 
+- Copyright: © SPWM. Alle rettigheter reservert.

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f12"/>
+      <stop offset="100%" style="stop-color:#1a1a22"/>
+    </linearGradient>
+    <linearGradient id="bar1" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.6"/>
+    </linearGradient>
+    <linearGradient id="line1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22d3ee"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg1)"/>
+  <!-- Grid -->
+  <g stroke="#2a2a35" stroke-width="0.5" opacity="0.6">
+    <line x1="80" y1="60" x2="80" y2="420"/><line x1="200" y1="60" x2="200" y2="420"/>
+    <line x1="320" y1="60" x2="320" y2="420"/><line x1="440" y1="60" x2="440" y2="420"/>
+    <line x1="560" y1="60" x2="560" y2="420"/><line x1="680" y1="60" x2="680" y2="420"/>
+    <line x1="80" y1="420" x2="760" y2="420"/><line x1="80" y1="320" x2="760" y2="320"/>
+    <line x1="80" y1="220" x2="760" y2="220"/><line x1="80" y1="120" x2="760" y2="120"/>
+  </g>
+  <!-- Bar chart -->
+  <rect x="100" y="280" width="55" height="140" fill="url(#bar1)" rx="4"/>
+  <rect x="180" y="220" width="55" height="200" fill="url(#bar1)" rx="4"/>
+  <rect x="260" y="260" width="55" height="160" fill="url(#bar1)" rx="4"/>
+  <rect x="340" y="180" width="55" height="240" fill="url(#bar1)" rx="4"/>
+  <rect x="420" y="240" width="55" height="180" fill="url(#bar1)" rx="4"/>
+  <rect x="500" y="200" width="55" height="220" fill="url(#bar1)" rx="4"/>
+  <rect x="580" y="160" width="55" height="260" fill="url(#bar1)" rx="4"/>
+  <rect x="660" y="260" width="55" height="160" fill="url(#bar1)" rx="4"/>
+  <!-- Line graph -->
+  <path d="M 90 380 Q 200 340 320 300 T 520 220 T 720 180" fill="none" stroke="url(#line1)" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Labels -->
+  <text x="140" y="450" fill="#6b7280" font-size="11" font-family="system-ui,sans-serif">KPI A</text>
+  <text x="400" y="450" fill="#6b7280" font-size="11" font-family="system-ui,sans-serif">Rapport</text>
+  <text x="680" y="450" fill="#6b7280" font-size="11" font-family="system-ui,sans-serif">Data</text>
+</svg>
