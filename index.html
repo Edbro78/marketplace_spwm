@@ -55,7 +55,7 @@
           <div class="nav-dropdown">
             <div class="nav-dropdown-inner">
               <strong>Q&amp;A</strong>
-              <p>Vanlige spørsmål og svar. Finn raskt hjelp til bruk av plattformene og innlogging.</p>
+              <p>Kommer mer informasjon.</p>
             </div>
           </div>
         </div>
@@ -64,7 +64,7 @@
           <div class="nav-dropdown">
             <div class="nav-dropdown-inner">
               <strong>Praktiske tips</strong>
-              <p>Råd og tips for å få mest ut av Arbeidsprosess del I, Innløse eller beholde og Gradvis implementering.</p>
+              <p>Kommer mer informasjon.</p>
             </div>
           </div>
         </div>
@@ -324,6 +324,16 @@ Fanen Formuesskatt er utviklet som et beregnings- og analyseverktøy for å gi e
 11.	Fanen inneholder i tillegg en egen tilleggsdel for vurdering av bankrente etter skatt. Her kan brukeren legge inn Forventet inflasjon (%), og systemet beregner hvilken bankrente som kreves for å gå i null etter skatt. Denne delen brukes for å sette formuesskatt og kapitalbeskatning inn i en bredere sammenheng, der realavkastning og inflasjon også tas med i vurderingen.
 12.	Fanen har også funksjoner for Nullstill alt, samt mulighet til å hente relevante data fra T-konto. Dette gjør arbeidsflyten mer effektiv og bidrar til at beregningene kan sees i sammenheng med den øvrige økonomiske analysen i dashboardet.
 Fanen Formuesskatt fungerer dermed som et strukturert beregningsverktøy for å analysere sammenhengen mellom formuesoppbygning og skattebelastning. Den brukes til å vise hvordan ulike eiendeler, gjeld, rabatter og fribeløp samlet påvirker beregningen av formuesskatt, og til å gjøre denne sammenhengen lettere å forstå i praktisk rådgivning. For en tredjepart gir fanen en tydelig forklaring på hvilke inputverdier som legges inn, hvordan beregningen gjennomføres, og hva de ulike resultatene representerer.
+
+
+Innløse eller beholde:
+
+1.	Dashboardet starter på Forside, som fungerer som en meny. Her får brukeren en rask inngang til de viktigste analysene: Input, Nedbetale lån, Utbetale utbytte, Innløse Fondskonto og Innløse ASK.
+2.	Øverst vises alltid fire nøkkeltall: porteføljestørrelse, aksjeandel, forventet avkastning og antall år. Disse oppdateres fortløpende når brukeren endrer forutsetninger, slik at man hele tiden ser hva beregningene bygger på.
+3.	I Input legger brukeren inn grunnlaget for hele dashboardet. Det gjelder blant annet porteføljeverdi, innskutt kapital, skattesatser, rentekostnader, avdragsprofil, aksjeandel og forventet avkastning. Dette er selve motoren i løsningen.
+4.	Når input er satt, bruker de andre fanene disse tallene til å vise ulike valg og konsekvenser. Nedbetale lån sammenligner verdien av å bruke penger på lån versus å beholde investeringene. Utbetale utbytte viser kostnaden ved å ta ut penger nå, sett opp mot skatt og mulig fremtidig avkastning.
+5.	Innløse Fondskonto og Innløse ASK vurderer hva som skjer skattemessig og økonomisk dersom investeringer tas ut eller flyttes. Her synliggjøres blant annet gevinst, skatt og netto verdi.
+6.	Til slutt kan brukeren åpne Output for å få en samlet tekstversjon av beregningene, eller bruke Input-knappen til å lime inn tall på nytt. Nullstille setter alt tilbake til standardverdier.
 </template>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
