@@ -92,8 +92,8 @@
     var chartH = h * 0.35, baseline = h - h * 0.12, chartW = w + 100;
     var barGap = 3, barWidth = Math.max(2, (chartW / barCount) - barGap);
     var radius = Math.min(2, barWidth * 0.4);
-    var fillColor = 'rgba(99, 102, 241, 0.2)';
-    var strokeColor = 'rgba(99, 102, 241, 0.4)';
+    var fillColor = 'rgba(153, 217, 242, 0.25)';
+    var strokeColor = 'rgba(153, 217, 242, 0.45)';
     var phase = offset * 0.3, baseX = -offset * 80;
 
     for (var i = 0; i < barCount; i++) {
@@ -616,4 +616,54 @@
       });
     }
   }
+})();
+
+/* ----- Forklaring Modal ----- */
+(function forklaringModal() {
+  'use strict';
+  var modal = document.getElementById('forklaring-modal');
+  var trigger = document.getElementById('forklaring-trigger');
+  var contentEl = document.getElementById('forklaring-content');
+  var closeBtn = modal && modal.querySelector('.forklaring-modal-close');
+  var backdrop = modal && modal.querySelector('.forklaring-modal-backdrop');
+  var fallbackEl = document.getElementById('forklaring-fallback');
+
+  function openModal() {
+    if (!modal || !contentEl) return;
+    var loadContent = function (text) {
+      contentEl.textContent = text || 'Kunne ikke laste innhold.';
+      contentEl.scrollTop = 0;
+    };
+    var fallbackText = (fallbackEl && fallbackEl.content) ? fallbackEl.content.textContent.trim() : '';
+    loadContent(fallbackText);
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    fetch('forklaring dashboards.txt')
+      .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+      .then(loadContent)
+      .catch(function () {});
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function handleOpen(e) {
+    if (e.type === 'click' || (e.type === 'keydown' && (e.key === 'Enter' || e.key === ' '))) {
+      if (e.type === 'keydown') e.preventDefault();
+      openModal();
+    }
+  }
+
+  if (trigger) {
+    trigger.addEventListener('click', handleOpen);
+    trigger.addEventListener('keydown', handleOpen);
+  }
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (backdrop) backdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal && modal.getAttribute('aria-hidden') === 'false') closeModal();
+  });
 })();

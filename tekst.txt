@@ -5,7 +5,19 @@
 - Logo: SPWM MARKETPLACE
 - Meny: Ta kontakt | Disclaimer | Q&A | Praktiske tips
 - Meny lenker: #ta-kontakt | #disclaimer | #qa | #praktiske-tips
-- Ta kontakt (tooltip ved hover): Ta kontakt med superbruker på ditt kontor, eventuelt ta kontakt med Edvard Brøther direkte på edvard.brother@soderbergpartnerswealth.no
+- Ta kontakt (tooltip ved hover): 
+
+Superbrukere Marketplace Dashboard:
+
+Oslo: Raymond Edquist, Vegard Stusvik Godø
+Drammen: Marit Mødre
+Tønsberg: Bård-Åke Petersson
+Kristiansand: Are Osland
+Stavanger: Sølve Myklebust, Mats Myrvold
+Bergen: Edvard Brøther, Øystein Bakke
+Ålesund: Trond Halvorsen
+Trondheim: Espen Straume Steine, Sindre Raaen
+
 
 ## Hero
 - Overline: (tom)
@@ -34,21 +46,26 @@
 
 ## Praktisk bruk (innsikt-bilder)
 - Seksjonstittel: Praktisk bruk:
-- Undertekst: Best practise, video, Q&A, overføring til møtereferat og formuesplan.
-- Kort: Best Practise | Video | Overføring til møtereferat | Overføring til formuesplan
+- Undertekst: Forklaring funksjonalitet, video, Q&A, overføring til møtereferat og formuesplan.
+- Kort: Forklaring funksjonalitet| Video | Overføring til møtereferat | Overføring til formuesplan
 
 ## Økosystemfilosofi
-- Seksjonstittel: Hovedtanke bak dette prosjektet
+- Seksjonstittel: Hovedtanken bak dette prosjektet
 - Underoverskrift: Fra slides til skreddersøm. Fra produktfokus til strategi
-- Brødtekst (kontrast): Ved å ha ha et komplett verktøy for karlegging av den økonomiske situasjonen, vil rådgiver og klient ha et 360 graders perspektiv på den fiansielle situasjonen.
+- Brødtekst (kontrast): Ved å ha et komplett verktøy for kartlegging av den økonomiske situasjonen, vil rådgiver og klient ha et 360 graders perspektiv på den finansielle situasjonen.
 
 ## Protokoll — Den beste rådgivningen går via gode verktøy og skreddersøm
 - Seksjonstittel: SPWM Marketplace
 - Underoverskrift: Våre beste verktøy utviklet etter innspill fra rådgivere
-- Steg 1 — Dialog: Ved å bruke verktøy vil løsninger og rådgivning utformes sammen med klient live. Dette som alternativ til slides og andre statiske hjelpemiddel
+- Steg 1 — Dialog: Ved å bruke verktøy vil løsninger og rådgivning utformes sammen med klient live. Dette som alternativ til slides og andre statiske hjelpemidler
 - Steg 2 — Strategi: Vår rådgivning går i retning av helhet, strategi og helikopterperspektiv. Bort fra produkter som kommer senere i rådgivningen.
 - Steg 3 — Bro over til Formuesplanen: Dashbordene vil danne fundamentet til Formuesplanen. Klientens strategidokument.
 
 ## Footer
 - Tekst: SPWM Marketplace — 
 - Copyright: © SPWM. Alle rettigheter reservert.
+
+
+
+
+

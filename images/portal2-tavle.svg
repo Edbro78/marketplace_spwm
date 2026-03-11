@@ -5,19 +5,19 @@
       <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
     <linearGradient id="area2" x1="0%" y1="100%" x2="0%" y2="0%">
-      <stop offset="0%" stop-color="#334155"/>
-      <stop offset="100%" stop-color="#475569"/>
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#64748b"/>
     </linearGradient>
   </defs>
   <rect width="800" height="450" fill="url(#bg2)"/>
   <!-- Innløse eller beholde: LINJEKURVE med arealfyll (helt annen type diagram) -->
-  <g transform="translate(60, 60)" opacity="0.5">
+  <g transform="translate(60, 60)" opacity="0.85">
     <path d="M0 320 Q120 280 240 220 T480 180 T720 140 L720 330 L0 330 Z" fill="url(#area2)"/>
-    <path d="M0 320 Q120 280 240 220 T480 180 T720 140" stroke="#64748b" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M0 320 Q120 280 240 220 T480 180 T720 140" stroke="#94a3b8" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
   <!-- Sekundær kurve -->
-  <g transform="translate(80, 320)" opacity="0.2">
+  <g transform="translate(80, 320)" opacity="0.5">
     <path d="M0 80 Q100 60 200 40 Q300 70 400 30 L400 110 L0 110 Z" fill="#64748b"/>
-    <path d="M0 80 Q100 60 200 40 Q300 70 400 30" stroke="#94a3b8" stroke-width="1.5" fill="none"/>
+    <path d="M0 80 Q100 60 200 40 Q300 70 400 30" stroke="#94a3b8" stroke-width="2" fill="none"/>
   </g>
 </svg>
