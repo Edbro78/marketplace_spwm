@@ -36,10 +36,6 @@
   document.addEventListener('fullscreenchange', updateIcon);
   document.addEventListener('webkitfullscreenchange', updateIcon);
   document.addEventListener('msfullscreenchange', updateIcon);
-  document.addEventListener('click', function tryOnce(e) {
-    if (e.target.closest('#fullscreen-btn')) return;
-    if (!isFullscreen()) requestFs();
-  }, { once: true });
 })();
 
 /* ----- Hero stock chart ----- */
