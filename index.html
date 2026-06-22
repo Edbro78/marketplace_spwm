@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPWM Marketplace — Portalen til fremtiden</title>
+  <link rel="stylesheet" href="SPWM mal/colors_and_type.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <button type="button" id="fullscreen-btn" class="fullscreen-btn" aria-label="Fullskjerm" title="Fullskjerm (ESC for å avslutte)">
+    <svg class="fullscreen-icon fullscreen-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9m5.25-5.25h4.5m0 4.5v-4.5m0 4.5L15 9m-9 11.25v4.5m0-4.5h4.5m-4.5 0L9 15m5.25 5.25h4.5m0-4.5v4.5m0-4.5L15 15"/>
+    </svg>
+    <svg class="fullscreen-icon fullscreen-exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5l5.25 5.25"/>
+    </svg>
+  </button>
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="#hero" class="logo">
+        <img src="SPWM mal/assets/spwm-logo.svg" alt="Söderberg &amp; Partners Wealth Management" class="logo-img" />
+      </a>
+      <a href="#hero" class="logo-mono">Marketplace</a>
+      <nav class="nav-links">
+        <div class="nav-item">
+          <a href="mailto:edvard.brother@soderbergpartnerswealth.no" id="ta-kontakt">Ta kontakt</a>
+          <div class="nav-dropdown">
+            <div class="nav-dropdown-inner nav-dropdown-disclaimer">
+              <strong>Superbrukere Marketplace Dashboard:</strong>
+              <p>Oslo: Raymond Edquist, Vegard Stusvik Godø<br>Drammen: Marit Mørdre<br>Tønsberg: Bård-Åke Petersson<br>Kristiansand: Are Osland<br>Stavanger: Sølve Myklebust, Mats Myrvold<br>Bergen: Edvard Brøther, Øystein Bakke<br>Ålesund: Trond Halvorsen<br>Trondheim: Espen Straume Steine, Sindre Raaen</p>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#disclaimer">Disclaimer</a>
+          <div class="nav-dropdown">
+            <div class="nav-dropdown-inner nav-dropdown-disclaimer">
+              <strong>Disclaimer:</strong>
+              <p>Resultatet av de beregninger som gjøres i kalkulatoren vil variere ut ifra hvilke tall som legges til grunn. Tallene som legges til grunn bestemmes i samtale mellom rådgiver og deltaker i møtet. Resultatet vil dermed kunne variere fra de tallene som fremkommer offisielle dokumenter i tilknytning til ytelse av investeringsrådgivning.</p>
+              <p>Beregningene i kalkulatoren må ansees som statiske og er kun ment for illustrasjonsformål. For konkrete fremstillinger, vises det til offisielle dokumenter knyttet til rådgivningen.</p>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#qa">Q&amp;A</a>
+          <div class="nav-dropdown">
+            <div class="nav-dropdown-inner">
+              <strong>Q&amp;A</strong>
+              <p>Kommer mer informasjon.</p>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#praktiske-tips">Praktiske tips</a>
+          <div class="nav-dropdown">
+            <div class="nav-dropdown-inner">
+              <strong>Praktiske tips</strong>
+              <p>Kommer mer informasjon.</p>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-bg" style="background-image: url('images/hero-bg.png');"></div>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <canvas id="hero-stock-chart" class="hero-stock-chart" aria-hidden="true"></canvas>
+      <div class="hero-content">
+        <p class="hero-overline"></p>
+        <div class="hero-title-wrap">
+          <h1 class="hero-title">Marketplace</h1>
+        </div>
+        <p class="hero-sub">En samling verktøy utviklet etter innspill fra rådgivere i SPWM.</p>
+        <a href="#portals" class="btn-master">Gå til Dashboards</a>
+      </div>
+      <div class="hero-scroll-hint">
+        <span class="scroll-line"></span>
+        <span class="scroll-text">Scroll ned</span>
+      </div>
+    </section>
+    <section id="portals" class="portals section-reveal">
+      <div class="portals-bg" style="background-image: url('images/dashboard-bakgrunn.png');"></div>
+      <div class="portals-header">
+        <h2 class="portals-title">Dashboards</h2>
+        <p class="portals-sub"></p>
+      </div>
+      <div class="portals-grid">
+        <div class="portal-card-wrapper">
+          <div class="portal-card-glow" aria-hidden="true"></div>
+          <article class="portal-card portal-card-1" data-dest="Arbeidsprosess del I">
+          <div class="portal-card-bg">
+            <img src="images/portal1-finans.svg" alt="Penger, børs og aksjer" onerror="this.src='https://picsum.photos/seed/finance1/800/450'" />
+          </div>
+          <div class="portal-card-overlay"></div>
+          <div class="card-shine" aria-hidden="true"></div>
+          <div class="portal-card-content">
+            <span class="portal-card-enter">→ Start</span>
+            <h3 class="portal-card-title">Arbeidsprosess del I</h3>
+            <p class="portal-card-desc">Skattemessig organisering. Eiendeler, finansiering og Kontantstrøm. Fremtidige målsetninger</p>
+            <div class="data-stream">
+              <div class="data-stream-track">
+                <span>Investeringsprognose</span><span>Eiendeler</span><span>Finansiering</span><span>Kontantstrøm</span><span>Pensjon</span><span>Formuesskatt</span><span>Investeringsprognose</span><span>Eiendeler</span><span>Finansiering</span><span>Kontantstrøm</span><span>Pensjon</span><span>Formuesskatt</span><span>Investeringsprognose</span><span>Eiendeler</span><span>Finansiering</span><span>Kontantstrøm</span><span>Pensjon</span><span>Formuesskatt</span>
+              </div>
+            </div>
+            <a href="https://dashboard.stg.spwm.no/dashboard" class="btn-portal" data-platform="Arbeidsprosess del I"><span class="btn-portal-text">Gå til Dashboard</span><span class="btn-portal-arrow">→</span></a>
+          </div>
+        </article>
+        </div>
+        <div class="portal-card-wrapper">
+          <div class="portal-card-glow" aria-hidden="true"></div>
+          <article class="portal-card portal-card-2" data-dest="Innløse eller beholde">
+          <div class="portal-card-bg">
+            <img src="images/portal2-tavle.svg" alt="Tavle med økonomitall" onerror="this.src='https://picsum.photos/seed/board1/800/450'" />
+          </div>
+          <div class="portal-card-overlay"></div>
+          <div class="card-shine" aria-hidden="true"></div>
+          <div class="portal-card-content">
+            <h3 class="portal-card-title">Innløse eller beholde</h3>
+            <p class="portal-card-desc">Utbetale utbytte eller vente, betale ned gjeld eller vente, flytte fondskonto eller beholde</p>
+            <div class="data-stream">
+              <div class="data-stream-track">
+                <span>Betale ned gjeld</span><span>Betale ut utbytte</span><span>Flytte fondskonto</span><span>Betale ned gjeld</span><span>Betale ut utbytte</span><span>Flytte fondskonto</span><span>Betale ned gjeld</span><span>Betale ut utbytte</span><span>Flytte fondskonto</span>
+              </div>
+            </div>
+            <a href="https://dashboard.stg.spwm.no/innlose-eller-beholde" class="btn-portal" data-platform="Innløse eller beholde"><span class="btn-portal-text">Gå til Dashboard</span><span class="btn-portal-arrow">→</span></a>
+          </div>
+        </article>
+        </div>
+        <div class="portal-card-wrapper">
+          <div class="portal-card-glow" aria-hidden="true"></div>
+          <article class="portal-card portal-card-3" data-dest="Gradvis implementering">
+          <div class="portal-card-bg">
+            <img src="images/portal3-søyle.svg" alt="Søylediagram" />
+          </div>
+          <div class="portal-card-overlay"></div>
+          <div class="card-shine" aria-hidden="true"></div>
+          <div class="portal-card-content">
+            <h3 class="portal-card-title">Gradvis implementering</h3>
+            <p class="portal-card-desc">Hvordan implementere investeringer. Investere alt dag 1, gjøre dette gradvis over tid.</p>
+            <div class="data-stream">
+              <div class="data-stream-track">
+                <span>Gradvis implementering</span><span>Ulik aksjeandel</span><span>Månedlig</span><span>Halvårlig</span><span>Kvartalsvis</span><span>Gradvis implementering</span><span>Ulik aksjeandel</span><span>Månedlig</span><span>Halvårlig</span><span>Kvartalsvis</span><span>Gradvis implementering</span><span>Ulik aksjeandel</span><span>Månedlig</span><span>Halvårlig</span><span>Kvartalsvis</span>
+              </div>
+            </div>
+            <a href="https://dashboard.stg.spwm.no/gradvis-implementering" class="btn-portal" data-platform="Gradvis implementering"><span class="btn-portal-text">Gå til Dashboard</span><span class="btn-portal-arrow">→</span></a>
+          </div>
+        </article>
+        </div>
+        <div class="portal-card-wrapper">
+          <div class="portal-card-glow" aria-hidden="true"></div>
+          <article class="portal-card portal-card-4" data-dest="Pensjonsgapet">
+          <div class="portal-card-bg">
+            <img src="images/portal3-network.svg" alt="Pensjonsanalyse" />
+          </div>
+          <div class="portal-card-overlay"></div>
+          <div class="card-shine" aria-hidden="true"></div>
+          <div class="portal-card-content">
+            <h3 class="portal-card-title">Pensjonsgapet</h3>
+            <p class="portal-card-desc">Beregner forskjellen mellom forventet pensjonsnivå og ønsket pensjonsnivå</p>
+            <div class="data-stream">
+              <div class="data-stream-track">
+                <span>OTP</span><span>IPS</span><span>Folketrygd</span><span>Pensjonsgap</span><span>Sluttlønn</span><span>Engangsinnskudd</span><span>OTP</span><span>IPS</span><span>Folketrygd</span><span>Pensjonsgap</span><span>Sluttlønn</span><span>Engangsinnskudd</span><span>OTP</span><span>IPS</span><span>Folketrygd</span><span>Pensjonsgap</span><span>Sluttlønn</span><span>Engangsinnskudd</span>
+              </div>
+            </div>
+            <a href="https://dashboard.stg.spwm.no/Pensjonsgapet2026/" class="btn-portal" data-platform="Pensjonsgapet"><span class="btn-portal-text">Gå til Dashboard</span><span class="btn-portal-arrow">→</span></a>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
+    <section id="innsikt-bilder" class="innsikt-bilder section-reveal">
+      <div class="innsikt-bilder-inner">
+        <h2 class="innsikt-bilder-title">Praktisk bruk:</h2>
+        <p class="innsikt-bilder-sub">Forklaring funksjonalitet, video, Q&A, overføring til møtereferat og formuesplan.</p>
+        <div class="innsikt-bilder-grid">
+          <div class="innsikt-card innsikt-card-forklaring" id="forklaring-trigger" role="button" tabindex="0" aria-label="Åpne forklaring av dashboards">
+            <div class="innsikt-card-bg" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80');"></div>
+            <div class="innsikt-card-overlay"></div>
+            <span class="innsikt-card-label">Forklaring funksjonalitet</span>
+          </div>
+          <div class="innsikt-card">
+            <div class="innsikt-card-bg" style="background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80');"></div>
+            <div class="innsikt-card-overlay"></div>
+            <span class="innsikt-card-label">Video</span>
+          </div>
+          <div class="innsikt-card">
+            <div class="innsikt-card-bg" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80');"></div>
+            <div class="innsikt-card-overlay"></div>
+            <span class="innsikt-card-label">Overføring til møtereferat</span>
+          </div>
+          <div class="innsikt-card">
+            <div class="innsikt-card-bg" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80');"></div>
+            <div class="innsikt-card-overlay"></div>
+            <span class="innsikt-card-label">Overføring til formuesplan</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="filosofi" class="filosofi section-reveal">
+      <div class="filosofi-inner">
+        <h2 class="filosofi-title">Hovedtanken bak dette prosjektet</h2>
+        <p class="filosofi-sub">Fra slides til skreddersøm. Fra produktfokus til strategi</p>
+        <div class="filosofi-manifesto">
+          <p class="manifesto-before">Ved å ha et komplett verktøy for kartlegging av den økonomiske situasjonen, vil rådgiver og klient ha et 360 graders perspektiv på den finansielle situasjonen.</p>
+        </div>
+      </div>
+    </section>
+    <section id="protokoll" class="protokoll section-reveal">
+      <div class="protokoll-inner">
+        <h2 class="protokoll-title">SPWM Marketplace</h2>
+        <p class="protokoll-sub">Våre beste verktøy utviklet etter innspill fra rådgivere</p>
+        <div class="protokoll-stack">
+          <article class="stack-item" data-step="1">
+            <span class="stack-line" aria-hidden="true"></span>
+            <span class="stack-num">01</span>
+            <h3 class="stack-title">Dialog</h3>
+            <p class="stack-desc">Ved å bruke verktøy vil løsninger og rådgivning utformes sammen med klient live. Dette som alternativ til slides og andre statiske hjelpemidler</p>
+          </article>
+          <article class="stack-item" data-step="2">
+            <span class="stack-line" aria-hidden="true"></span>
+            <span class="stack-num">02</span>
+            <h3 class="stack-title">Strategi</h3>
+            <p class="stack-desc">Vår rådgivning går i retning av helhet, strategi og helikopterperspektiv. Bort fra produkter som kommer senere i rådgivningen.</p>
+          </article>
+          <article class="stack-item" data-step="3">
+            <span class="stack-line" aria-hidden="true"></span>
+            <span class="stack-num">03</span>
+            <h3 class="stack-title">Bro over til Formuesplanen</h3>
+            <p class="stack-desc">Dashbordene vil danne fundamentet til Formuesplanen. Klientens strategidokument.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <p class="footer-tagline">SPWM Marketplace — </p>
+      <p class="footer-copy">© SPWM. Alle rettigheter reservert.</p>
+    </footer>
+  </main>
+  <div id="forklaring-modal" class="forklaring-modal" aria-hidden="true" role="dialog" aria-labelledby="forklaring-modal-title">
+    <div class="forklaring-modal-backdrop"></div>
+    <div class="forklaring-modal-box">
+      <div class="forklaring-modal-header">
+        <h2 id="forklaring-modal-title" class="forklaring-modal-title">Forklaring dashboards</h2>
+        <button type="button" class="forklaring-modal-close" aria-label="Lukk">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="forklaring-modal-body">
+        <pre id="forklaring-content" class="forklaring-content"></pre>
+      </div>
+    </div>
+  </div>
+  <template id="forklaring-fallback">
+Mål og Behov:
+
+Mål og behov er utviklet som et prognose- og analyseverktøy for å vurdere hvordan en investeringsportefølje kan utvikle seg over tid, gitt bestemte økonomiske forutsetninger, ønskede uttak og ulike markedsantakelser. Hensikten med fanen er å gi et strukturert grunnlag for å vurdere om tilgjengelig kapital er tilstrekkelig til å dekke fremtidige behov, og eventuelt hvor store justeringer som må gjøres i sparing, porteføljestørrelse eller uttaksnivå. Bruken av fanen kan forklares steg for steg.
+1.	Først registreres porteføljens utgangspunkt. Brukeren legger inn størrelsen på Portefølje I, Portefølje II og eventuelt Likviditetsfond. Disse feltene representerer kapitalen som skal inngå i analysen, og utgjør grunnlaget for alle videre beregninger.
+2.	Deretter fastsettes ønsket investeringsprofil. Dette gjøres ved å angi aksjeandel for porteføljene. Fanen benytter forhåndsdefinerte fordelingsvalg, slik at brukeren raskt kan velge ønsket risikonivå for kapitalen. Denne fordelingen påvirker både forventet avkastning og risiko i fremskrivningene.
+3.	Neste steg er å registrere spare- og uttaksforutsetninger. Her legges det inn Årlig sparing, Innskutt kapital, Antall år investeringsperiode og Antall år med utbetaling. I tillegg registreres ønsket årlig uttak til forbruk og eventuelt ønsket årlig uttak til dekning av formuesskatt. På denne måten defineres både oppbyggingsfasen og uttaksfasen i modellen.
+4.	Etter dette legges de økonomiske forutsetningene inn. Fanen inneholder inputfelter for forventet avkastning på aksjer og renter, forventet KPI, rådgivningshonorar, skjermingsrente, skattesats på aksjer, skattesats på renter samt standardavvik for aksjer og renter. Disse feltene brukes for å beregne forventet nettoavkastning og for å simulere hvordan porteføljen kan utvikle seg under ulike forhold.
+5.	Brukeren kan deretter registrere særskilte hendelser. For hver hendelse kan det angis navn, beløp, startår og sluttår, samt om hendelsen skal påvirke innskutt kapital. Dette gjør det mulig å modellere ekstra innskudd, uttak eller andre økonomiske endringer som ikke inngår i den ordinære spare- eller uttaksplanen.
+6.	Når alle sentrale opplysninger er registrert, presenterer fanen utviklingen grafisk og numerisk. Resultatene viser blant annet hvordan kapitalen beveger seg gjennom investeringsperioden og utbetalingsperioden, og hvordan avkastning, sparing, skatt og uttak samlet påvirker sluttresultatet.
+7.	Fanen inneholder også egne målsøk-funksjoner. Disse brukes når man ønsker å finne et nødvendig nivå i stedet for å teste seg frem manuelt. Systemet kan beregne hvor høy årlig sparing som kreves, hvor stor årlig utbetaling porteføljen kan bære, eller hvor stor Portefølje I må være for at kapitalen skal vare i hele den valgte perioden.
+8.	I tillegg gir fanen tilgang til simuleringer og visualiseringer. Brukeren kan åpne ulike grafiske fremstillinger og simuleringer, herunder scenarier år for år og Monte Carlo-baserte fremstillinger. Dette gjør det mulig å vurdere ikke bare ett forventet utfall, men også variasjonsbredde og usikkerhet knyttet til porteføljens utvikling.
+Fanen Mål og behov fungerer dermed som en samlet analysemodul for kapitalplanlegging. I praksis brukes den til å avklare om en gitt portefølje kan støtte ønskede fremtidige uttak, hvilke forutsetninger som må være oppfylt, og hvilke økonomiske tilpasninger som eventuelt må gjøres. For en tredjepart gir fanen en tydelig fremstilling av både hvilke tall som legges inn, hvordan de behandles, og hva resultatene betyr i en rådgivnings- eller planleggingssammenheng.
+
+
+
+T-konto:
+
+Fanen T-konto er utviklet som et struktur- og analyseverktøy for å gi en samlet fremstilling av en persons eller husholdnings økonomiske situasjon. Hensikten med fanen er å vise hvordan eiendeler, gjeld, egenkapital, inntekter og kontantstrøm henger sammen, slik at brukeren får et helhetlig bilde av balansen i økonomien. Fanen fungerer både som en oversiktstavle og som et pedagogisk verktøy i rådgivningssammenheng, der komplekse økonomiske forhold presenteres i en mer visuell og systematisk form.Bruken av fanen kan forklares steg for steg.
+1.	Først brukes fanen til å etablere en overordnet økonomisk oversikt. Øverst og på forsiden vises sentrale nøkkeltall som Eiendeler, Gjeld, Egenkapital og Årlig kontantstrøm. Disse verdiene gir et umiddelbart sammendrag av den økonomiske situasjonen og gjør det mulig å se forholdet mellom det som eies, det som skyldes, og hvilken kontantstrøm økonomien genererer.
+2.	Deretter kan brukeren navigere mellom de ulike delseksjonene i fanen. T-konto er bygd opp med egne visninger for Forside, Struktur, Eiendeler, Gjeld, Inntekter, Kontantstrøm, T-konto, Treemap, Tapsbærende evne, Analyse og Forventet avkastning. Dette gjør det mulig å arbeide systematisk, enten ved å starte med helheten og gå ned i detalj, eller ved å gå direkte til den delen av økonomien som skal analyseres.
+3.	I delen for Struktur og Eiendeler brukes fanen til å kategorisere og visualisere hvilke verdier som inngår i den totale formuen. Dette kan for eksempel være investeringer, likviditet, eiendom eller andre kapitalposter. Målet er å tydeliggjøre hvordan kapitalen er fordelt, og hvilke eiendelstyper som utgjør hovedtyngden av balansen.
+4.	I delen for Gjeld synliggjøres forpliktelser og finansiering. Her brukes fanen til å vise hvordan gjelden påvirker den samlede økonomiske strukturen, og hvordan forholdet mellom eiendeler og gjeld gir grunnlag for beregning av egenkapital. Dette gjør det lettere å vurdere robustheten i økonomien og graden av finansiell belåning.
+5.	I delene for Inntekter og Kontantstrøm analyseres den løpende økonomien. Her er formålet å vise hvilke inntekter som kommer inn, hvilke belastninger som trekkes ut, og hva som gjenstår som årlig netto kontantstrøm. Dette er særlig relevant når man ønsker å vurdere om økonomien har bæreevne til å håndtere gjeld, opprettholde ønsket levestandard eller støtte nye investeringer.
+6.	Selve visningen T-konto fungerer som en grafisk og regnskapslignende fremstilling av sammenhengen mellom de viktigste økonomiske postene. Her presenteres balansen på en måte som gjør det enklere å forklare hvordan eiendeler og finansiering står mot hverandre. I praksis brukes dette som et illustrasjonsverktøy for å gjøre økonomisk struktur mer forståelig for en kunde eller tredjepart.
+7.	Fanen inneholder også en Treemap-visning. Denne brukes for å visualisere størrelsesforholdene mellom ulike økonomiske poster, slik at brukeren raskt ser hvilke deler av økonomien som er mest betydningsfulle. Dette gir et mer intuitivt bilde av fordelingen enn det en ren tabell ofte gjør.
+8.	Videre brukes seksjonen Tapsbærende evne til å vurdere hvor motstandsdyktig økonomien er ved negative utfall. Formålet er å vise om kapitalstrukturen og kontantstrømmen er sterk nok til å tåle belastninger, verdifall eller uforutsette hendelser, uten at den samlede økonomiske situasjonen blir ubalansert.
+9.	I delene Analyse og Forventet avkastning brukes fanen til å sette den økonomiske strukturen inn i en mer fremtidsrettet sammenheng. Her kan brukeren vurdere hvordan den eksisterende balansen og sammensetningen av kapital kan påvirke fremtidig utvikling, avkastningsmuligheter og økonomisk handlingsrom.
+10.	Til slutt kan fanen brukes til dokumentasjon og presentasjon. T-konto inneholder funksjon for å eksportere grafikk i høy oppløsning, slik at fremstillingen kan brukes i rapporter, presentasjoner eller annen kundedokumentasjon. Dette gjør fanen spesielt nyttig i rådgivningsprosesser hvor det er behov for å formidle økonomisk struktur på en tydelig og visuelt tilgjengelig måte.
+Fanen T-konto fungerer dermed som en samlet strukturmodell for økonomien. I praksis brukes den til å vise hvordan formue, gjeld, egenkapital og kontantstrøm henger sammen, og til å gjøre denne sammenhengen lettere å forstå for både rådgiver og kunde. For en tredjepart gir fanen en tydelig og systematisk forklaring på hvordan økonomien er bygget opp, hvilke hovedelementer som inngår, og hvordan disse påvirker den samlede økonomiske bæreevnen.
+
+
+Risikosimulering: (indekstall er mottatt fra IA)
+
+Fanen Risikosimulering er utviklet som et analyseverktøy for å sammenligne risiko og historisk utvikling mellom en eksisterende portefølje og en alternativ porteføljesammensetning. Hensikten med fanen er å gi en mer konkret forståelse av hvordan ulike investeringsvalg ville ha slått ut over tid, både når det gjelder avkastning, verdifall, svingninger og kjøpekraft. Fanen brukes derfor som et beslutningsstøtteverktøy i vurderingen av om en ny portefølje gir en ønsket balanse mellom risiko og forventet utvikling.Bruken av fanen kan forklares steg for steg.
+1.	Først etableres sammenligningsgrunnlaget. Fanen arbeider med to porteføljer: Dagens Portefølje og Ny Portefølje. I tillegg vises valgt Startkapital og analysert Periode. Dette gir et tydelig utgangspunkt for analysen, siden begge porteføljene vurderes under samme historiske tidsrom og med samme kapitalgrunnlag.
+2.	Deretter registreres porteføljesammensetningen. For begge porteføljene kan brukeren angi eksponering mot hovedkategorier som Likviditet/kontanter, Renter, Aksjer, Alternative strategier og Annet. I tillegg kan brukeren åpne underfordelinger for renter og aksjer, slik at porteføljen kan spesifiseres mer detaljert, for eksempel mellom Renter IG, Renter High Yield, Norske aksjer, Nordiske aksjer, Emerging markets aksjer og Globale aksjer. Fanen inneholder også forhåndsdefinerte valg for aksjeandel, slik at brukeren raskt kan teste ulike risikonivåer.
+3.	Når porteføljene er registrert, brukes fanen til å beregne historisk utvikling for begge alternativene. I praksis betyr dette at systemet simulerer hvordan kapitalen ville ha utviklet seg dersom de valgte porteføljene hadde vært investert gjennom den aktuelle perioden. Resultatene brukes som grunnlag for videre analyser av avkastning og risiko.
+4.	Neste steg er å studere Input & Oversikt og Porteføljesammenligning. Her presenteres sentrale nøkkeltall som total avkastning, sluttverdi og volatilitet for både dagens og ny portefølje, samt differansen mellom dem. Formålet er å vise ikke bare hvilken portefølje som har gitt høyest avkastning, men også hvilken som har gjort det med størst eller minst svingninger.
+5.	Deretter kan brukeren analysere Arealfordeling. Denne delen viser hvordan porteføljens sammensetning utvikler seg over tid. Fanen kan også vise dette som boblediagram og med eller uten rebalansering. I praksis brukes dette til å vurdere hvordan fordelingen mellom aktivaklasser endrer seg når markedene beveger seg, og hvilken betydning rebalansering kan ha for utviklingen.
+6.	Et videre steg er å vurdere High Water Mark. Denne analysen viser hvor ofte porteføljen setter nye toppnoteringer, og hvor lenge den eventuelt blir liggende under tidligere toppnivåer. Fanen viser både grafisk utvikling og tabeller over de lengste periodene under high water mark. Dette gir et mer praktisk bilde av hvor lang tid det kan ta å hente inn tidligere verdifall.
+7.	Fanen inneholder også en egen Drawdown-analyse. Her vurderes hvor store fall porteføljene har hatt, hvor ofte store tap har oppstått, og hvor lang tid det har tatt å komme tilbake til tidligere nivåer. Brukeren kan se drawdown både i prosent og i kroner. I praksis er dette en sentral del av risikovurderingen, fordi den illustrerer hvordan risiko oppleves i faktiske tap, ikke bare som statistiske svingninger.
+8.	Videre kan brukeren analysere Kjøpekraft. Denne delen setter porteføljens utvikling inn i en bredere økonomisk kontekst og viser hvordan verdiutviklingen kan forstås i forhold til ulike mål på kjøpekraft og økonomisk realverdi. Fanen bruker flere ulike perspektiver, blant annet lønnsutvikling og andre referanseverdier, for å vise hva kapitalen faktisk representerer over tid.
+9.	I tillegg inneholder fanen en Pyramide-visning og en egen oversikt over Aktivaklasser. Disse delene brukes for å vise fordeling, historisk variasjon og relative bidrag fra de ulike investeringskategoriene. Formålet er å gjøre det lettere å se hvilke deler av porteføljen som har vært viktigst for utviklingen, og hvilke som har bidratt mest til stabilitet eller risiko.
+10.	Til slutt kan brukeren justere analysetidsrommet. Fanen har valg for perioder som YTD, Siste 12 måneder, Siste 3 år, Siste 5 år, Siste 10 år og Max, samt visning år for år. Dette gjør det mulig å analysere porteføljene både i korte og lange historiske perspektiver. I praksis er dette viktig fordi en portefølje kan fremstå svært forskjellig avhengig av hvilket tidsrom som legges til grunn.
+Fanen Risikosimulering fungerer dermed som en historisk og visuell stresstest av porteføljevalg. Den brukes til å synliggjøre hvordan ulike sammensetninger av kapital kan gi forskjellig avkastning, forskjellig risiko og forskjellig tåleevne i perioder med uro. For en tredjepart gir fanen en tydelig og strukturert fremstilling av hvordan dagens løsning kan sammenlignes med et alternativ, og hvilke konsekvenser et endret investeringsvalg kan få i praksis.
+
+
+Pensjonsgapet:
+
+Fanen Pensjonsgapet er utviklet som et analyse- og prognoseverktøy for å vurdere forholdet mellom forventet fremtidig pensjon og ønsket pensjonsnivå. Hensikten med fanen er å synliggjøre om det eksisterer et avvik mellom den pensjonen en person forventes å motta og den pensjonen vedkommende ønsker å ha, samt å beregne hvilke økonomiske tiltak som eventuelt må gjennomføres for å dekke dette gapet. Fanen brukes derfor som et konkret beslutningsverktøy i rådgivningssituasjoner hvor målet er å planlegge fremtidig inntekt i pensjonstilværelsen.Bruken av fanen kan forklares steg for steg.
+1.	Først registreres grunnleggende person- og pensjonsdata. Brukeren legger inn Din alder, Pensjonsalder og Grunnbeløp (1G). Disse feltene danner utgangspunktet for beregningene, fordi de bestemmer hvor lang tid det er igjen til pensjon og hvilke forutsetninger som skal ligge til grunn for opptjening og fremtidige utbetalinger.
+2.	Deretter legges dagens inntekts- og pensjonsgrunnlag inn. Her registreres Dagens årslønn, OTP saldo i dag, OTP-sats, IPS saldo i dag, Årlig sparing IPS og Årlig utbetaling fra fripoliser. I tillegg legges Årlig utbetaling Folketrygden inn. Samlet gir dette et bilde av hvilke ordninger og beløp som allerede inngår i personens fremtidige pensjonsgrunnlag.
+3.	Neste steg er å legge inn økonomiske forutsetninger for fremskrivningen. Fanen bruker inputfelter for forventet avkastning, utbetalingsperiode for OTP og forventet årlig KPI. Disse forutsetningene brukes til å beregne hvordan både lønn, pensjonskapital og fremtidige pensjonsutbetalinger kan utvikle seg fram mot pensjonsalder. KPI-forutsetningen påvirker flere av beregningene, blant annet sluttlønn, grunnbeløp og fremtidige pensjonsverdier.
+4.	Deretter angis ønsket pensjonsnivå. Dette feltet uttrykkes som en prosentandel av forventet sluttlønn. Formålet er å definere hvilket inntektsnivå brukeren ønsker å ha som pensjonist. Når dette nivået sammenholdes med beregnet fremtidig pensjon, kan systemet avgjøre om det foreligger et pensjonsgap.
+5.	Når alle inputfelter er fylt ut, beregner fanen et estimat for Årlig pensjon. Denne størrelsen representerer den samlede forventede årlige utbetalingen fra OTP, IPS, fripoliser og folketrygd. Samtidig vises pensjonen også som prosent av sluttlønn, slik at brukeren får et tydelig mål på hvor stor del av fremtidig inntekt som faktisk vil bli erstattet av pensjonsutbetalingene.
+6.	Neste steg er å analysere den detaljerte oversikten. Her presenteres blant annet År til pensjonsalder, Sluttlønn (estimat), Årlig sparing (OTP) i dag, OTP saldo ved pensjon, Årlig utbetaling fra OTP, Årlig sparing (IPS) i dag, IPS saldo ved pensjon, Årlig utbetaling fra IPS, Årlig utbetaling fra Fripoliser og Årlig utbetaling fra Folketrygden. Denne delen gjør det mulig å forstå hvilke enkeltkomponenter som bygger opp den totale pensjonen, og hvordan de bidrar hver for seg.
+7.	Dersom beregnet pensjon er lavere enn ønsket pensjonsnivå, beregner fanen selve pensjonsgapet. Dette uttrykkes som et behov for ekstra årlig utbetaling utover beregnet pensjon. I praksis viser fanen dermed hvor stort avviket er mellom forventet og ønsket pensjon, både i prosent og i kroner.
+8.	Når et pensjonsgap er identifisert, beregner fanen hvilke tiltak som kan dekke dette. Først vises Nødvendig engangsinnskudd i dag, som angir hvor mye kapital som må investeres umiddelbart for å lukke gapet. Deretter vises Alternativ månedlig sparing, som angir hvor mye som må spares løpende frem til pensjonsalder for å oppnå samme effekt. Dette gjør fanen særlig nyttig i rådgivning, fordi den oversetter et abstrakt gap til konkrete handlingsalternativer.
+9.	Fanen inneholder også en Kombinasjonsløsning. Her kan brukeren velge hvor stor andel av det nødvendige bidraget som skal dekkes av et engangsinnskudd, og hvor stor andel som skal dekkes gjennom månedlig sparing. Dette gjør beregningen mer fleksibel og praktisk, siden mange brukere vil ønske en løsning som kombinerer eksisterende kapital med fremtidig sparing.
+10.	Til slutt fungerer fanen som et pedagogisk verktøy for å gjøre pensjonsplanlegging mer forståelig. Ved å samle dagens situasjon, fremtidige forutsetninger, ønsket nivå og nødvendige tiltak i én visning, gir fanen et tydelig grunnlag for å diskutere hva som må til for å oppnå ønsket økonomisk trygghet som pensjonist.
+Fanen Pensjonsgapet fungerer dermed som et strukturert planleggingsverktøy for fremtidig pensjonsinntekt. Den brukes til å beregne forventet pensjon, måle denne opp mot ønsket pensjonsnivå og synliggjøre eventuelle tiltak som må gjennomføres for å lukke gapet. For en tredjepart gir fanen en tydelig og systematisk forklaring på hvilke inputverdier som brukes, hvordan beregningene gjennomføres, og hva resultatene betyr i praktisk økonomisk planlegging.
+
+
+Formuesskatt: (kvalitetssikret av SP Advokatene)
+
+Fanen Formuesskatt er utviklet som et beregnings- og analyseverktøy for å gi en indikativ fremstilling av hvordan sammensetningen av en persons formue påvirker beregningen av formuesskatt. Hensikten med fanen er å synliggjøre hvilke eiendeler som inngår i skattegrunnlaget, hvordan gjeld og verdsettelsesrabatter virker inn, og hvilken samlet skattebelastning dette kan gi. Fanen brukes derfor som et praktisk støtteverktøy i rådgivningssituasjoner hvor det er behov for å forklare sammenhengen mellom formuesstruktur og skatt.Bruken av fanen kan forklares steg for steg.
+1.	Først registreres de overordnede personforholdene. Brukeren angir Antall personer, slik at beregningen kan ta hensyn til om formuen skal vurderes for én person eller to personer. Dette er viktig fordi fribeløp og samlet skattebelastning påvirkes av hvor mange personer beregningen gjelder for.
+2.	Deretter registreres Privat gjeld. Dette feltet brukes for å beregne fradragsberettiget gjeld og for å vise hvordan gjelden reduserer nettoformuen. Gjeldsbelastningen er sentral fordi den påvirker hvor stor del av bruttoformuen som faktisk inngår i skattegrunnlaget.
+3.	Neste steg er å legge inn de ulike eiendelene. Fanen inneholder egne inputfelt for blant annet Primærbolig, Fritidseiendom, Tomt, Bil / Båt, Aksjeselskap (AS), Privat portefølje (ASK), Sekundærbolig, Bankinnskudd og Driftsmidler. Hver eiendel registreres med verdi, slik at systemet kan bygge opp et samlet bilde av bruttoformuen.
+4.	Når eiendelene er lagt inn, brukes fanen til å beregne Bruttoformue. Dette er summen av alle registrerte eiendeler før fradrag og justeringer. Denne størrelsen gir et første bilde av hvor stor samlet formue som er registrert i beregningen.
+5.	Etter dette beregnes Verdsettelsesrabatt. Formålet med denne delen er å vise at ulike eiendeler ikke nødvendigvis inngår med full verdi i skattegrunnlaget. Fanen synliggjør derfor hvor stor samlet rabatt som følger av gjeldende verdsettelsesregler, og hvordan denne rabatten reduserer den delen av formuen som faktisk blir gjenstand for skatt.
+6.	Neste steg er beregning av Nettoformue (etter rabatt). Her trekkes effekten av verdsettelsesrabatter inn, slik at brukeren får et klarere bilde av hvilken formuesverdi som står igjen etter skattemessige justeringer. Dette er et viktig mellomledd før gjeldsfradrag og fribeløp tas inn i beregningen.
+7.	Deretter beregnes Fradragsberettiget gjeld. Denne posten viser hvor mye av registrert gjeld som kan trekkes fra i den videre beregningen. Fanen viser dermed tydelig hvordan gjeld påvirker formuesgrunnlaget og bidrar til å redusere skattepliktig nettoformue.
+8.	Neste del av prosessen er beregning av Fribeløp. Dette er den delen av formuen som ikke beskattes. Fanen viser fribeløpet separat, slik at brukeren lettere kan forstå på hvilket nivå formuesskatten faktisk begynner å slå inn.
+9.	Når disse elementene er på plass, beregnes Skattegrunnlag. Dette er den delen av formuen som gjenstår etter at verdsettelsesrabatter, fradragsberettiget gjeld og fribeløp er tatt hensyn til. Skattegrunnlaget er dermed det sentrale grunnlaget for videre beregning av formuesskatt.
+10.	Til slutt presenteres Total Formuesskatt. Fanen viser også hvor stor andel denne skatten utgjør av bruttoformuen. I praksis gjør dette det mulig å se både selve skattebeløpet og den relative belastningen det representerer. Dette er nyttig når man ønsker å diskutere hvordan ulike formuessammensetninger kan gi ulik skatteeffekt.
+11.	Fanen inneholder i tillegg en egen tilleggsdel for vurdering av bankrente etter skatt. Her kan brukeren legge inn Forventet inflasjon (%), og systemet beregner hvilken bankrente som kreves for å gå i null etter skatt. Denne delen brukes for å sette formuesskatt og kapitalbeskatning inn i en bredere sammenheng, der realavkastning og inflasjon også tas med i vurderingen.
+12.	Fanen har også funksjoner for Nullstill alt, samt mulighet til å hente relevante data fra T-konto. Dette gjør arbeidsflyten mer effektiv og bidrar til at beregningene kan sees i sammenheng med den øvrige økonomiske analysen i dashboardet.
+Fanen Formuesskatt fungerer dermed som et strukturert beregningsverktøy for å analysere sammenhengen mellom formuesoppbygning og skattebelastning. Den brukes til å vise hvordan ulike eiendeler, gjeld, rabatter og fribeløp samlet påvirker beregningen av formuesskatt, og til å gjøre denne sammenhengen lettere å forstå i praktisk rådgivning. For en tredjepart gir fanen en tydelig forklaring på hvilke inputverdier som legges inn, hvordan beregningen gjennomføres, og hva de ulike resultatene representerer.
+
+
+Innløse eller beholde:
+
+1.	Dashboardet starter på Forside, som fungerer som en meny. Her får brukeren en rask inngang til de viktigste analysene: Input, Nedbetale lån, Utbetale utbytte, Innløse Fondskonto og Innløse ASK.
+2.	Øverst vises alltid fire nøkkeltall: porteføljestørrelse, aksjeandel, forventet avkastning og antall år. Disse oppdateres fortløpende når brukeren endrer forutsetninger, slik at man hele tiden ser hva beregningene bygger på.
+3.	I Input legger brukeren inn grunnlaget for hele dashboardet. Det gjelder blant annet porteføljeverdi, innskutt kapital, skattesatser, rentekostnader, avdragsprofil, aksjeandel og forventet avkastning. Dette er selve motoren i løsningen.
+4.	Når input er satt, bruker de andre fanene disse tallene til å vise ulike valg og konsekvenser. Nedbetale lån sammenligner verdien av å bruke penger på lån versus å beholde investeringene. Utbetale utbytte viser kostnaden ved å ta ut penger nå, sett opp mot skatt og mulig fremtidig avkastning.
+5.	Innløse Fondskonto og Innløse ASK vurderer hva som skjer skattemessig og økonomisk dersom investeringer tas ut eller flyttes. Her synliggjøres blant annet gevinst, skatt og netto verdi.
+6.	Til slutt kan brukeren åpne Output for å få en samlet tekstversjon av beregningene, eller bruke Input-knappen til å lime inn tall på nytt. Nullstille setter alt tilbake til standardverdier.
+</template>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
