@@ -306,6 +306,26 @@ body {
 }
 .btn-master:active { transform: translateY(0); }
 
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+}
+.btn-master-secondary {
+  background: var(--white);
+  color: var(--sp-navy);
+  border-color: var(--white);
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+.btn-master-secondary:hover {
+  background: var(--blue-50);
+  color: var(--sp-navy);
+  border-color: var(--blue-50);
+}
+
 .hero-scroll-hint {
   position: absolute;
   bottom: var(--space-8);
@@ -989,6 +1009,28 @@ main { overflow-x: hidden; }
   flex-direction: column;
   overflow: hidden;
 }
+.forklaring-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--border);
+  background: var(--gray-50);
+  flex-shrink: 0;
+}
+.btn-modal-copy {
+  padding: 10px var(--space-4);
+  background: var(--blue-main);
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-weight: var(--fw-semibold);
+  font-size: var(--text-sm-size);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.btn-modal-copy:hover { background: var(--sp-navy-pressed); }
+.btn-modal-copy.is-copied { background: var(--success-600); }
 .forklaring-content {
   display: block;
   font-family: var(--font-sans);

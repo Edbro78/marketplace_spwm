@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="nav-item">
-          <a href="#disclaimer">Disclaimer</a>
+          <a href="#disclaimer" id="disclaimer-nav-trigger">Disclaimer</a>
           <div class="nav-dropdown">
             <div class="nav-dropdown-inner nav-dropdown-disclaimer">
               <strong>Disclaimer:</strong>
@@ -77,7 +77,10 @@
           <h1 class="hero-title">Marketplace</h1>
         </div>
         <p class="hero-sub">En samling verktøy utviklet etter innspill fra rådgivere i SPWM.</p>
-        <a href="#portals" class="btn-master">Gå til Dashboards</a>
+        <div class="hero-actions">
+          <a href="#portals" class="btn-master">Gå til Dashboards</a>
+          <button type="button" class="btn-master btn-master-secondary" id="disclaimer-hero-trigger">Disclaimer</button>
+        </div>
       </div>
       <div class="hero-scroll-hint">
         <span class="scroll-line"></span>
@@ -134,21 +137,21 @@
         </div>
         <div class="portal-card-wrapper">
           <div class="portal-card-glow" aria-hidden="true"></div>
-          <article class="portal-card portal-card-3" data-dest="Gradvis implementering">
+          <article class="portal-card portal-card-3" data-dest="17 nivåer av økonomisk frihet">
           <div class="portal-card-bg">
-            <img src="images/portal3-søyle.svg" alt="Søylediagram" />
+            <img src="images/portal3-søyle.svg" alt="17 nivåer av økonomisk frihet" />
           </div>
           <div class="portal-card-overlay"></div>
           <div class="card-shine" aria-hidden="true"></div>
           <div class="portal-card-content">
-            <h3 class="portal-card-title">Gradvis implementering</h3>
-            <p class="portal-card-desc">Hvordan implementere investeringer. Investere alt dag 1, gjøre dette gradvis over tid.</p>
+            <h3 class="portal-card-title">17 nivåer av økonomisk frihet</h3>
+            <p class="portal-card-desc">Se hvor du står på skalaen med 17 nivåer av økonomisk frihet.</p>
             <div class="data-stream">
               <div class="data-stream-track">
-                <span>Gradvis implementering</span><span>Ulik aksjeandel</span><span>Månedlig</span><span>Halvårlig</span><span>Kvartalsvis</span><span>Gradvis implementering</span><span>Ulik aksjeandel</span><span>Månedlig</span><span>Halvårlig</span><span>Kvartalsvis</span><span>Gradvis implementering</span><span>Ulik aksjeandel</span><span>Månedlig</span><span>Halvårlig</span><span>Kvartalsvis</span>
+                <span>Økonomisk frihet</span><span>17 nivåer</span><span>Kapital</span><span>Frihet</span><span>Formue</span><span>Økonomisk frihet</span><span>17 nivåer</span><span>Kapital</span><span>Frihet</span><span>Formue</span><span>Økonomisk frihet</span><span>17 nivåer</span><span>Kapital</span><span>Frihet</span><span>Formue</span>
               </div>
             </div>
-            <a href="https://dashboard.stg.spwm.no/gradvis-implementering" class="btn-portal" data-platform="Gradvis implementering"><span class="btn-portal-text">Gå til Dashboard</span><span class="btn-portal-arrow">→</span></a>
+            <a href="https://dashboard.stg.spwm.no/okonomisk_frihet/" class="btn-portal" data-platform="17 nivåer av økonomisk frihet"><span class="btn-portal-text">Gå til Dashboard</span><span class="btn-portal-arrow">→</span></a>
           </div>
         </article>
         </div>
@@ -258,6 +261,30 @@
       </div>
     </div>
   </div>
+  <div id="disclaimer-modal" class="forklaring-modal" aria-hidden="true" role="dialog" aria-labelledby="disclaimer-modal-title">
+    <div class="forklaring-modal-backdrop"></div>
+    <div class="forklaring-modal-box">
+      <div class="forklaring-modal-header">
+        <h2 id="disclaimer-modal-title" class="forklaring-modal-title">Disclaimer</h2>
+        <button type="button" class="forklaring-modal-close" aria-label="Lukk">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="forklaring-modal-body">
+        <pre id="disclaimer-content" class="forklaring-content"></pre>
+      </div>
+      <div class="forklaring-modal-footer">
+        <button type="button" id="disclaimer-copy" class="btn-modal-copy">Kopier</button>
+      </div>
+    </div>
+  </div>
+  <template id="disclaimer-fallback">Disclaimer:
+
+Resultatet av de beregninger som gjøres i kalkulatoren vil variere ut ifra hvilke tall som legges til grunn. Tallene som legges til grunn bestemmes i samtale mellom rådgiver og deltaker i møtet. Resultatet vil dermed kunne variere fra de tallene som fremkommer offisielle dokumenter i tilknytning til ytelse av investeringsrådgivning.
+
+Beregningene i kalkulatoren må ansees som statiske og er kun ment for illustrasjonsformål. For konkrete fremstillinger, vises det til offisielle dokumenter knyttet til rådgivningen.</template>
   <template id="forklaring-fallback">
 Mål og Behov:
 

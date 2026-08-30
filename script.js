@@ -230,7 +230,7 @@
   const heroContent = document.querySelector('.hero-content');
   const heroOverline = document.querySelector('.hero-overline');
   if (heroContent) {
-    const els = heroContent.querySelectorAll('.hero-overline, .hero-sub, .btn-master');
+    const els = heroContent.querySelectorAll('.hero-overline, .hero-sub, .hero-actions');
     gsap.set(els, { opacity: 0, y: 36 });
     gsap.to(els, {
       opacity: 1,
@@ -657,6 +657,84 @@
     trigger.addEventListener('click', handleOpen);
     trigger.addEventListener('keydown', handleOpen);
   }
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (backdrop) backdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal && modal.getAttribute('aria-hidden') === 'false') closeModal();
+  });
+})();
+
+/* ----- Disclaimer Modal ----- */
+(function disclaimerModal() {
+  'use strict';
+  var modal = document.getElementById('disclaimer-modal');
+  var heroTrigger = document.getElementById('disclaimer-hero-trigger');
+  var navTrigger = document.getElementById('disclaimer-nav-trigger');
+  var contentEl = document.getElementById('disclaimer-content');
+  var copyBtn = document.getElementById('disclaimer-copy');
+  var closeBtn = modal && modal.querySelector('.forklaring-modal-close');
+  var backdrop = modal && modal.querySelector('.forklaring-modal-backdrop');
+  var fallbackEl = document.getElementById('disclaimer-fallback');
+  var copyResetTimer;
+
+  function getDisclaimerText() {
+    return (fallbackEl && fallbackEl.content) ? fallbackEl.content.textContent.trim() : '';
+  }
+
+  function openModal(e) {
+    if (e) e.preventDefault();
+    if (!modal || !contentEl) return;
+    contentEl.textContent = getDisclaimerText();
+    contentEl.scrollTop = 0;
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function copyText() {
+    if (!contentEl || !copyBtn) return;
+    var text = contentEl.textContent;
+    function onSuccess() {
+      copyBtn.textContent = 'Kopiert!';
+      copyBtn.classList.add('is-copied');
+      clearTimeout(copyResetTimer);
+      copyResetTimer = setTimeout(function () {
+        copyBtn.textContent = 'Kopier';
+        copyBtn.classList.remove('is-copied');
+      }, 2000);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(onSuccess).catch(function () {
+        fallbackCopy(text, onSuccess);
+      });
+    } else {
+      fallbackCopy(text, onSuccess);
+    }
+  }
+
+  function fallbackCopy(text, onSuccess) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      if (document.execCommand('copy')) onSuccess();
+    } finally {
+      document.body.removeChild(ta);
+    }
+  }
+
+  if (heroTrigger) heroTrigger.addEventListener('click', openModal);
+  if (navTrigger) navTrigger.addEventListener('click', openModal);
+  if (copyBtn) copyBtn.addEventListener('click', copyText);
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
   if (backdrop) backdrop.addEventListener('click', closeModal);
   document.addEventListener('keydown', function (e) {
