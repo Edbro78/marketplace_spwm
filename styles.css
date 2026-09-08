@@ -46,22 +46,19 @@ body {
 
 /* ---------- Fullscreen button ---------- */
 .fullscreen-btn {
-  position: fixed;
-  top: var(--space-3);
-  right: var(--space-3);
-  z-index: 10002;
-  width: 36px;
-  height: 36px;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
   padding: 0;
   border: 1px solid var(--border);
   background: var(--white);
   color: var(--sp-navy);
   border-radius: var(--radius-md);
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-xs);
+  position: relative;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 .fullscreen-btn:hover {
@@ -74,9 +71,9 @@ body {
   outline-offset: 2px;
 }
 .fullscreen-icon {
-  width: 18px;
-  height: 18px;
-  position: absolute;
+  font-size: 22px;
+  line-height: 1;
+  display: block;
 }
 .fullscreen-exit { display: none; }
 
@@ -135,6 +132,11 @@ body {
 .nav-links {
   display: flex;
   gap: var(--space-1);
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
   justify-self: end;
 }
 .nav-item { position: relative; }
@@ -667,7 +669,8 @@ main { overflow-x: hidden; }
 .portal-card-1 .portal-card-content,
 .portal-card-2 .portal-card-content,
 .portal-card-3 .portal-card-content,
-.portal-card-4 .portal-card-content {
+.portal-card-4 .portal-card-content,
+.portal-card-5 .portal-card-content {
   padding-bottom: 3.25rem;
 }
 
@@ -1060,7 +1063,13 @@ main { overflow-x: hidden; }
   }
   .logo { justify-self: start; width: 100%; }
   .logo-mono { justify-self: center; }
-  .nav-links { justify-self: center; width: 100%; justify-content: center; flex-wrap: wrap; }
+  .nav-actions {
+    justify-self: center;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav-links { justify-content: center; flex-wrap: wrap; }
   .portals-grid { grid-template-columns: 1fr; }
   .portal-geometric { width: 56px; height: 56px; top: var(--space-4); right: var(--space-4); }
   .forklaring-modal-box { width: 95%; max-height: 85vh; }

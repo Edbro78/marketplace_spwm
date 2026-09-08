@@ -5,25 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SPWM Marketplace — Portalen til fremtiden</title>
   <link rel="stylesheet" href="SPWM mal/colors_and_type.css" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
   <div class="noise-overlay" aria-hidden="true"></div>
-  <button type="button" id="fullscreen-btn" class="fullscreen-btn" aria-label="Fullskjerm" title="Fullskjerm (ESC for å avslutte)">
-    <svg class="fullscreen-icon fullscreen-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9m5.25-5.25h4.5m0 4.5v-4.5m0 4.5L15 9m-9 11.25v4.5m0-4.5h4.5m-4.5 0L9 15m5.25 5.25h4.5m0-4.5v4.5m0-4.5L15 15"/>
-    </svg>
-    <svg class="fullscreen-icon fullscreen-exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5l5.25 5.25"/>
-    </svg>
-  </button>
   <header class="navbar">
     <div class="navbar-inner">
       <a href="#hero" class="logo">
         <img src="SPWM mal/assets/spwm-logo.svg" alt="Söderberg &amp; Partners Wealth Management" class="logo-img" />
       </a>
       <a href="#hero" class="logo-mono">Marketplace</a>
+      <div class="nav-actions">
       <nav class="nav-links">
         <div class="nav-item">
           <a href="mailto:edvard.brother@soderbergpartnerswealth.no" id="ta-kontakt">Ta kontakt</a>
@@ -63,6 +57,11 @@
           </div>
         </div>
       </nav>
+      <button type="button" id="fullscreen-btn" class="fullscreen-btn" aria-label="Fullskjerm" title="Fullskjerm (ESC for å avslutte)">
+        <i class="bx bx-fullscreen fullscreen-icon fullscreen-expand" aria-hidden="true"></i>
+        <i class="bx bx-exit-fullscreen fullscreen-icon fullscreen-exit" aria-hidden="true"></i>
+      </button>
+      </div>
     </div>
   </header>
   <main>
@@ -172,6 +171,26 @@
               </div>
             </div>
             <a href="https://dashboard.stg.spwm.no/Pensjonsgapet2026/" class="btn-portal" data-platform="Pensjonsgapet"><span class="btn-portal-text">Gå til Dashboard</span><span class="btn-portal-arrow">→</span></a>
+          </div>
+        </article>
+        </div>
+        <div class="portal-card-wrapper">
+          <div class="portal-card-glow" aria-hidden="true"></div>
+          <article class="portal-card portal-card-5" data-dest="Lånekalkulator">
+          <div class="portal-card-bg">
+            <img src="images/portal2-trading.svg" alt="Lånekalkulator" />
+          </div>
+          <div class="portal-card-overlay"></div>
+          <div class="card-shine" aria-hidden="true"></div>
+          <div class="portal-card-content">
+            <h3 class="portal-card-title">Lånekalkulator</h3>
+            <p class="portal-card-desc">Beregn og sammenlign lån, renter og nedbetalingsplaner.</p>
+            <div class="data-stream">
+              <div class="data-stream-track">
+                <span>Lån</span><span>Rente</span><span>Nedbetaling</span><span>Terminbeløp</span><span>Gjeld</span><span>Lån</span><span>Rente</span><span>Nedbetaling</span><span>Terminbeløp</span><span>Gjeld</span><span>Lån</span><span>Rente</span><span>Nedbetaling</span><span>Terminbeløp</span><span>Gjeld</span>
+              </div>
+            </div>
+            <a href="https://dashboard.stg.spwm.no/lanekalkulator" class="btn-portal" data-platform="Lånekalkulator"><span class="btn-portal-text">Gå til Dashboard</span><span class="btn-portal-arrow">→</span></a>
           </div>
         </article>
         </div>
