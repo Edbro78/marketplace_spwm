@@ -670,7 +670,8 @@ main { overflow-x: hidden; }
 .portal-card-2 .portal-card-content,
 .portal-card-3 .portal-card-content,
 .portal-card-4 .portal-card-content,
-.portal-card-5 .portal-card-content {
+.portal-card-5 .portal-card-content,
+.portal-card-6 .portal-card-content {
   padding-bottom: 3.25rem;
 }
 
