@@ -435,16 +435,17 @@ main { overflow-x: hidden; }
 }
 
 .portal-card {
+  --stream-h: 40px;
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  min-height: 380px;
+  min-height: 420px;
+  height: 100%;
   border: 1px solid var(--border);
   background: var(--white);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 14px 32px -8px rgba(16, 24, 40, 0.22), 0 6px 12px -6px rgba(16, 24, 40, 0.12);
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 .portal-card-bg {
@@ -465,7 +466,7 @@ main { overflow-x: hidden; }
   z-index: 1;
   transition: transform 0.4s ease;
   filter: none;
-  opacity: 0.55;
+  opacity: 1;
 }
 .portal-card:hover .portal-card-bg img { transform: scale(1.04); }
 .portal-card-1 .portal-card-bg img { transition: transform 0.4s ease; }
@@ -586,18 +587,12 @@ main { overflow-x: hidden; }
 .portal-card-content {
   position: relative;
   z-index: 2;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   padding: var(--space-6);
-  transition: transform 0.25s ease;
-}
-.portal-card-enter {
-  display: inline-block;
-  font-weight: var(--fw-medium);
-  font-size: var(--text-sm-size);
-  color: var(--blue-main);
-  margin-bottom: var(--space-3);
-  opacity: 0;
-  transform: translateX(-16px);
-  will-change: transform, opacity;
+  padding-bottom: calc(var(--stream-h) + 20px);
 }
 .portal-card-title {
   font-family: var(--font-display);
@@ -615,6 +610,10 @@ main { overflow-x: hidden; }
 .btn-portal {
   display: inline-flex;
   align-items: center;
+  align-self: flex-start;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 3;
   gap: var(--space-2);
   padding: 10px var(--space-4);
   background: var(--blue-main);
@@ -646,10 +645,14 @@ main { overflow-x: hidden; }
   bottom: 0;
   left: 0;
   right: 0;
+  height: var(--stream-h);
   overflow: hidden;
-  padding: var(--space-2) 0;
+  display: flex;
+  align-items: center;
+  padding: 0;
   background: var(--blue-50);
   border-top: 1px solid var(--border);
+  z-index: 2;
 }
 .data-stream-track {
   display: flex;
@@ -666,14 +669,7 @@ main { overflow-x: hidden; }
   0% { transform: translateX(0); }
   100% { transform: translateX(-33.333%); }
 }
-.portal-card-1 .portal-card-content,
-.portal-card-2 .portal-card-content,
-.portal-card-3 .portal-card-content,
-.portal-card-4 .portal-card-content,
-.portal-card-5 .portal-card-content,
-.portal-card-6 .portal-card-content {
-  padding-bottom: 3.25rem;
-}
+.portal-card-6 { cursor: pointer; }
 
 .portal-geometric {
   position: absolute;
@@ -689,11 +685,9 @@ main { overflow-x: hidden; }
   height: 100%;
   will-change: transform;
 }
-.portal-card-3 .portal-card-content { padding-top: var(--space-4); }
 .portal-card:hover {
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 22px 44px -10px rgba(16, 24, 40, 0.28), 0 10px 18px -8px rgba(16, 24, 40, 0.14);
 }
-.portal-card:hover .portal-card-content { transform: translateY(-2px); }
 .portal-card:hover .portal-card-title { text-shadow: none; }
 .geo-shape-dot {
   transform-origin: 60px 60px;
@@ -701,210 +695,6 @@ main { overflow-x: hidden; }
   transition: opacity 0.2s ease;
 }
 .portal-card-3:hover .geo-shape-dot { opacity: 1; }
-
-/* ---------- Innsikt ---------- */
-.innsikt-bilder {
-  padding: var(--space-16) var(--space-8);
-  background: var(--white);
-  color: var(--fg);
-  border-top: 1px solid var(--border);
-}
-.innsikt-bilder-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.innsikt-bilder-title {
-  font-family: var(--font-display);
-  font-size: var(--display-xs-size);
-  line-height: var(--display-xs-lh);
-  font-weight: var(--fw-medium);
-  color: var(--sp-navy);
-  text-align: center;
-  margin: 0 0 var(--space-2);
-}
-.innsikt-bilder-sub {
-  text-align: center;
-  color: var(--fg-muted);
-  margin: 0 0 var(--space-10);
-  font-size: var(--text-md-size);
-}
-.innsikt-bilder-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-5);
-}
-.innsikt-card {
-  position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  aspect-ratio: 4/3;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-xs);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.innsikt-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-}
-.innsikt-card-forklaring { cursor: pointer; }
-.innsikt-card-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.4s ease;
-}
-.innsikt-card:hover .innsikt-card-bg { transform: scale(1.04); }
-.innsikt-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 0%, rgba(0,35,89,0.45) 100%);
-  pointer-events: none;
-}
-.innsikt-card-label {
-  position: absolute;
-  bottom: var(--space-4);
-  left: var(--space-4);
-  right: var(--space-4);
-  font-size: var(--text-sm-size);
-  font-weight: var(--fw-semibold);
-  color: var(--white);
-  z-index: 1;
-}
-
-/* ---------- Filosofi ---------- */
-.filosofi {
-  padding: var(--space-16) var(--space-8);
-  background: var(--bg-subtle);
-  color: var(--fg);
-  border-top: 1px solid var(--border);
-}
-.filosofi-inner {
-  max-width: 720px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-}
-.filosofi-inner::before {
-  content: '';
-  position: absolute;
-  top: -2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 2px;
-  background: var(--blue-main);
-  transition: width 0.6s ease-out;
-}
-.filosofi-inner.filosofi-line-visible::before { width: 80px; }
-.filosofi-title {
-  font-family: var(--font-display);
-  font-size: var(--display-xs-size);
-  line-height: var(--display-xs-lh);
-  font-weight: var(--fw-medium);
-  color: var(--sp-navy);
-  margin: 0 0 var(--space-2);
-}
-.filosofi-sub {
-  font-weight: var(--fw-medium);
-  font-size: var(--text-sm-size);
-  color: var(--blue-main);
-  margin: 0 0 var(--space-8);
-}
-.filosofi-manifesto {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-}
-.manifesto-before {
-  color: var(--fg-muted);
-  font-size: var(--text-md-size);
-  margin: 0;
-  line-height: var(--text-md-lh);
-}
-
-/* ---------- Protokoll ---------- */
-.protokoll {
-  padding: var(--space-16) var(--space-8);
-  max-width: 900px;
-  margin: 0 auto;
-  background: var(--white);
-  color: var(--fg);
-  border-top: 1px solid var(--border);
-}
-.protokoll-title {
-  font-family: var(--font-display);
-  font-size: var(--display-xs-size);
-  line-height: var(--display-xs-lh);
-  font-weight: var(--fw-medium);
-  color: var(--sp-navy);
-  margin: 0 0 var(--space-2);
-  text-align: center;
-}
-.protokoll-sub {
-  font-weight: var(--fw-medium);
-  font-size: var(--text-sm-size);
-  color: var(--blue-main);
-  text-align: center;
-  margin: 0 0 var(--space-10);
-}
-.protokoll-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-.stack-item {
-  padding: var(--space-8) var(--space-6) var(--space-8) var(--space-10);
-  border: 1px solid var(--border);
-  border-bottom: none;
-  background: var(--white);
-  color: var(--fg);
-  position: relative;
-  overflow: hidden;
-  transition: background 0.2s ease, transform 0.25s ease, box-shadow 0.25s ease;
-}
-.stack-item:last-of-type { border-bottom: 1px solid var(--border); }
-.stack-item:first-of-type { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
-.stack-item:last-of-type { border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
-.stack-item:only-child { border-radius: var(--radius-lg); }
-.stack-item:hover {
-  background: var(--blue-50);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
-}
-.stack-line {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 3px;
-  height: 100%;
-  background: var(--blue-main);
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 0.5s ease;
-}
-.stack-item.stack-line-visible .stack-line { transform: scaleY(1); }
-.stack-num {
-  font-weight: var(--fw-medium);
-  font-size: var(--text-xs-size);
-  color: var(--blue-main);
-  letter-spacing: 0.04em;
-  display: block;
-  margin-bottom: var(--space-2);
-}
-.stack-title {
-  font-family: var(--font-display);
-  font-size: var(--text-lg-size);
-  font-weight: var(--fw-semibold);
-  color: var(--sp-navy);
-  margin: 0 0 var(--space-2);
-}
-.stack-desc {
-  color: var(--fg-muted);
-  font-size: var(--text-sm-size);
-  margin: 0;
-  max-width: 560px;
-}
 
 /* ---------- Footer ---------- */
 .footer {
@@ -1053,9 +843,6 @@ main { overflow-x: hidden; }
 }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 900px) {
-  .innsikt-bilder-grid { grid-template-columns: repeat(2, 1fr); }
-}
 @media (max-width: 768px) {
   .navbar-inner {
     grid-template-columns: 1fr;
@@ -1076,8 +863,6 @@ main { overflow-x: hidden; }
   .forklaring-modal-box { width: 95%; max-height: 85vh; }
 }
 @media (max-width: 480px) {
-  .innsikt-bilder-grid { grid-template-columns: 1fr; gap: var(--space-4); }
-  .innsikt-card { aspect-ratio: 16/10; }
   .logo-img { height: 24px; }
 }
 

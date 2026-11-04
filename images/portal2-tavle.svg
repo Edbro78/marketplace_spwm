@@ -1,23 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
   <defs>
-    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1e293b"/>
-      <stop offset="100%" stop-color="#0f172a"/>
-    </linearGradient>
-    <linearGradient id="area2" x1="0%" y1="100%" x2="0%" y2="0%">
-      <stop offset="0%" stop-color="#475569"/>
-      <stop offset="100%" stop-color="#64748b"/>
+    <linearGradient id="beholdeFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0A5EDC" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#0A5EDC" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <rect width="800" height="450" fill="url(#bg2)"/>
-  <!-- Innløse eller beholde: LINJEKURVE med arealfyll (helt annen type diagram) -->
-  <g transform="translate(60, 60)" opacity="0.85">
-    <path d="M0 320 Q120 280 240 220 T480 180 T720 140 L720 330 L0 330 Z" fill="url(#area2)"/>
-    <path d="M0 320 Q120 280 240 220 T480 180 T720 140" stroke="#94a3b8" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect width="800" height="500" fill="#F3F7FD"/>
+  <g stroke="#E5E9EE" stroke-width="1">
+    <line x1="164" y1="64" x2="636" y2="64"/>
+    <line x1="164" y1="118" x2="636" y2="118"/>
+    <line x1="164" y1="172" x2="636" y2="172"/>
+    <line x1="164" y1="226" x2="636" y2="226"/>
   </g>
-  <!-- Sekundær kurve -->
-  <g transform="translate(80, 320)" opacity="0.5">
-    <path d="M0 80 Q100 60 200 40 Q300 70 400 30 L400 110 L0 110 Z" fill="#64748b"/>
-    <path d="M0 80 Q100 60 200 40 Q300 70 400 30" stroke="#94a3b8" stroke-width="2" fill="none"/>
-  </g>
+  <path d="M168 198 C248 190 292 146 356 124 C430 98 508 74 632 58 L632 226 L168 226 Z" fill="url(#beholdeFill)"/>
+  <path d="M168 212 C256 194 328 206 408 184 C498 160 562 168 632 150" stroke="#002359" stroke-width="2.25" stroke-linecap="round" stroke-dasharray="6 6"/>
+  <path d="M168 198 C248 190 292 146 356 124 C430 98 508 74 632 58" stroke="#0A5EDC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="632" cy="58" r="5.5" fill="#0A5EDC" stroke="#F3F7FD" stroke-width="2"/>
+  <circle cx="632" cy="150" r="5" fill="#FFFFFF" stroke="#002359" stroke-width="2"/>
 </svg>

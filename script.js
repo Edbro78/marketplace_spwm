@@ -426,19 +426,19 @@
     });
   });
 
-  /* ----- Card 1 (Kinetic Entry): Enter arrow + background zoom ----- */
+  const arveCard = document.querySelector('.portal-card-6');
+  if (arveCard) {
+    const arveUrl = 'https://dashboard.stg.spwm.no/arvedashboard/';
+    arveCard.addEventListener('click', function (e) {
+      if (e.target.closest('a')) return;
+      window.location.href = arveUrl;
+    });
+  }
+
+  /* ----- Card 1: background zoom ----- */
   const card1 = document.querySelector('.portal-card-1');
   if (card1) {
-    const enterEl = card1.querySelector('.portal-card-enter');
     const card1Bg = card1.querySelector('.portal-card-bg');
-    if (enterEl) {
-      card1.addEventListener('mouseenter', function () {
-        gsap.fromTo(enterEl, { x: -32, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: 'none' });
-      });
-      card1.addEventListener('mouseleave', function () {
-        gsap.to(enterEl, { x: -32, opacity: 0, duration: 0.25 });
-      });
-    }
     if (card1Bg) {
       card1.addEventListener('mouseenter', function () {
         gsap.to(card1Bg, { scale: 1.14, duration: 1.5, ease: 'power2.out' });
@@ -482,82 +482,6 @@
       if (geoInner) gsap.to(geoInner, { rotation: 0, duration: 0.5 });
       if (geoDot) gsap.to(geoDot, { scale: 1, opacity: 0.6, duration: 0.3 });
       idleTween.restart();
-    });
-  }
-
-  /* ----- Philosophy: stagger + decorative line draw + scroll breath ----- */
-  const filosofiSection = document.querySelector('.filosofi');
-  const filosofiInner = document.querySelector('.filosofi-inner');
-  if (filosofiSection && filosofiInner) {
-    const filosofiEls = filosofiSection.querySelectorAll('.filosofi-title, .filosofi-sub, .manifesto-before, .manifesto-after');
-    gsap.set(filosofiEls, { opacity: 0, y: 32 });
-    ScrollTrigger.create({
-      trigger: filosofiSection,
-      start: 'top 78%',
-      onEnter: function () {
-        filosofiInner.classList.add('filosofi-line-visible');
-        gsap.to(filosofiEls, {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          stagger: 0.12,
-          ease: 'power3.out'
-        });
-      }
-    });
-    gsap.fromTo(filosofiSection, { opacity: 0.96 }, {
-      opacity: 1,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: filosofiSection,
-        start: 'top 65%',
-        end: 'bottom 35%',
-        scrub: 1.2
-      }
-    });
-  }
-
-  /* ----- Protocol stack: stagger + left line fill + number pop ----- */
-  const stackItems = document.querySelectorAll('.stack-item');
-  stackItems.forEach(function (item, i) {
-    const line = item.querySelector('.stack-line');
-    const num = item.querySelector('.stack-num');
-    gsap.set(item, { opacity: 0, x: -28 });
-    gsap.set(num, { scale: 0.5, opacity: 0 });
-    ScrollTrigger.create({
-      trigger: item,
-      start: 'top 86%',
-      onEnter: function () {
-        item.classList.add('stack-line-visible');
-        gsap.to(item, {
-          opacity: 1,
-          x: 0,
-          duration: 0.6,
-          delay: i * 0.12,
-          ease: 'power3.out'
-        });
-        gsap.to(num, {
-          scale: 1,
-          opacity: 1,
-          duration: 0.5,
-          delay: i * 0.12 + 0.1,
-          ease: 'back.out(1.4)'
-        });
-      }
-    });
-  });
-
-  const protokollSection = document.querySelector('.protokoll');
-  if (protokollSection) {
-    gsap.fromTo(protokollSection, { opacity: 0.96 }, {
-      opacity: 1,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: protokollSection,
-        start: 'top 72%',
-        end: 'bottom 28%',
-        scrub: 1
-      }
     });
   }
 
